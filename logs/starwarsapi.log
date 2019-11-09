@@ -1,0 +1,206 @@
+2019-11-09 00:30:29 INFO  br.com.swapi.StarwarsapiApplication - Starting StarwarsapiApplication on daniel-670Z5E with PID 13317 (/home/daniel/Documentos/workspace_STS/starwarsapi/target/classes started by daniel in /home/daniel/Documentos/workspace_STS/starwarsapi)
+2019-11-09 00:30:29 DEBUG br.com.swapi.StarwarsapiApplication - Running with Spring Boot v2.2.1.RELEASE, Spring v5.2.1.RELEASE
+2019-11-09 00:30:29 INFO  br.com.swapi.StarwarsapiApplication - The following profiles are active: dev
+2019-11-09 00:30:29 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-11-09 00:30:29 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-11-09 00:30:30 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-11-09 00:30:30 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 75ms. Found 4 repository interfaces.
+2019-11-09 00:30:30 INFO  io.undertow.servlet - Initializing Spring embedded WebApplicationContext
+2019-11-09 00:30:30 INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1667 ms
+2019-11-09 00:30:31 INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-11-09 00:30:31 INFO  org.mongodb.driver.cluster - Adding discovered server localhost:27017 to client view of cluster
+2019-11-09 00:30:31 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING}]
+2019-11-09 00:30:31 INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:27}] to localhost:27017
+2019-11-09 00:30:31 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 00:30:31 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 3 to database admin on connection [connectionId{localValue:1, serverValue:27}] to server localhost:27017
+2019-11-09 00:30:31 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 3 completed successfully in 13.93 ms on connection [connectionId{localValue:1, serverValue:27}] to server localhost:27017
+2019-11-09 00:30:31 INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 1]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=17555721}
+2019-11-09 00:30:31 INFO  org.mongodb.driver.cluster - Discovered cluster type of STANDALONE
+2019-11-09 00:30:31 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=17.6 ms, state=CONNECTED}]
+2019-11-09 00:30:31 WARN  o.s.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2019-11-09 00:30:31 WARN  o.s.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2019-11-09 00:30:31 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-11-09 00:30:31 WARN  o.s.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2019-11-09 00:30:31 WARN  o.s.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2019-11-09 00:30:32 INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-11-09 00:30:32 INFO  io.undertow - starting server: Undertow - 2.0.27.Final
+2019-11-09 00:30:32 INFO  org.xnio - XNIO version 3.3.8.Final
+2019-11-09 00:30:32 INFO  org.xnio.nio - XNIO NIO Implementation Version 3.3.8.Final
+2019-11-09 00:30:32 INFO  o.s.b.w.e.u.UndertowServletWebServer - Undertow started on port(s) 8080 (http) with context path ''
+2019-11-09 00:30:32 INFO  br.com.swapi.StarwarsapiApplication - Started StarwarsapiApplication in 3.841 seconds (JVM running for 4.878)
+2019-11-09 00:30:41 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 00:30:41 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 4 to database admin on connection [connectionId{localValue:1, serverValue:27}] to server localhost:27017
+2019-11-09 00:30:41 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 4 completed successfully in 2.98 ms on connection [connectionId{localValue:1, serverValue:27}] to server localhost:27017
+2019-11-09 00:30:41 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=15.0 ms, state=CONNECTED}]
+2019-11-09 00:30:51 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 00:30:51 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 5 to database admin on connection [connectionId{localValue:1, serverValue:27}] to server localhost:27017
+2019-11-09 00:30:51 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 5 completed successfully in 6.39 ms on connection [connectionId{localValue:1, serverValue:27}] to server localhost:27017
+2019-11-09 00:30:51 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=13.5 ms, state=CONNECTED}]
+2019-11-09 00:30:59 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2019-11-09 00:30:59 INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-11-09 00:30:59 DEBUG org.mongodb.driver.connection - Closing connection connectionId{localValue:1, serverValue:27}
+2019-11-09 00:30:59 INFO  io.undertow - stopping server: Undertow - 2.0.27.Final
+2019-11-09 00:34:16 INFO  br.com.swapi.StarwarsapiApplication - Starting StarwarsapiApplication on daniel-670Z5E with PID 14300 (/home/daniel/Documentos/workspace_STS/starwarsapi/target/classes started by daniel in /home/daniel/Documentos/workspace_STS/starwarsapi)
+2019-11-09 00:34:16 DEBUG br.com.swapi.StarwarsapiApplication - Running with Spring Boot v2.2.1.RELEASE, Spring v5.2.1.RELEASE
+2019-11-09 00:34:16 INFO  br.com.swapi.StarwarsapiApplication - The following profiles are active: dev
+2019-11-09 00:34:16 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-11-09 00:34:16 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-11-09 00:34:16 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-11-09 00:34:16 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 69ms. Found 4 repository interfaces.
+2019-11-09 00:34:17 INFO  io.undertow.servlet - Initializing Spring embedded WebApplicationContext
+2019-11-09 00:34:17 INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1419 ms
+2019-11-09 00:34:18 INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-11-09 00:34:18 INFO  org.mongodb.driver.cluster - Adding discovered server localhost:27017 to client view of cluster
+2019-11-09 00:34:18 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING}]
+2019-11-09 00:34:18 INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:34}] to localhost:27017
+2019-11-09 00:34:18 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 00:34:18 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 3 to database admin on connection [connectionId{localValue:1, serverValue:34}] to server localhost:27017
+2019-11-09 00:34:18 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 3 completed successfully in 14.24 ms on connection [connectionId{localValue:1, serverValue:34}] to server localhost:27017
+2019-11-09 00:34:18 INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 1]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=21063519}
+2019-11-09 00:34:18 INFO  org.mongodb.driver.cluster - Discovered cluster type of STANDALONE
+2019-11-09 00:34:18 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=21.1 ms, state=CONNECTED}]
+2019-11-09 00:34:18 WARN  o.s.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2019-11-09 00:34:18 WARN  o.s.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2019-11-09 00:34:18 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-11-09 00:34:18 WARN  o.s.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2019-11-09 00:34:18 WARN  o.s.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2019-11-09 00:34:19 INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-11-09 00:34:19 INFO  io.undertow - starting server: Undertow - 2.0.27.Final
+2019-11-09 00:34:19 INFO  org.xnio - XNIO version 3.3.8.Final
+2019-11-09 00:34:19 INFO  org.xnio.nio - XNIO NIO Implementation Version 3.3.8.Final
+2019-11-09 00:34:19 INFO  o.s.b.w.e.u.UndertowServletWebServer - Undertow started on port(s) 8080 (http) with context path ''
+2019-11-09 00:34:19 INFO  br.com.swapi.StarwarsapiApplication - Started StarwarsapiApplication in 4.023 seconds (JVM running for 5.202)
+2019-11-09 00:34:26 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2019-11-09 00:34:26 INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-11-09 00:34:26 DEBUG org.mongodb.driver.connection - Closing connection connectionId{localValue:1, serverValue:34}
+2019-11-09 00:34:26 INFO  io.undertow - stopping server: Undertow - 2.0.27.Final
+2019-11-09 02:09:39 INFO  br.com.swapi.StarwarsapiApplication - Starting StarwarsapiApplication on daniel-670Z5E with PID 29554 (/home/daniel/Documentos/workspace_STS/starwarsapi/target/classes started by daniel in /home/daniel/Documentos/workspace_STS/starwarsapi)
+2019-11-09 02:09:39 DEBUG br.com.swapi.StarwarsapiApplication - Running with Spring Boot v2.2.1.RELEASE, Spring v5.2.1.RELEASE
+2019-11-09 02:09:39 INFO  br.com.swapi.StarwarsapiApplication - The following profiles are active: dev
+2019-11-09 02:09:39 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-11-09 02:09:39 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-11-09 02:09:40 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-11-09 02:09:40 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 75ms. Found 4 repository interfaces.
+2019-11-09 02:09:41 INFO  io.undertow.servlet - Initializing Spring embedded WebApplicationContext
+2019-11-09 02:09:41 INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1376 ms
+2019-11-09 02:09:41 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'planetResource' defined in file [/home/daniel/Documentos/workspace_STS/starwarsapi/target/classes/br/com/swapi/resources/PlanetResource.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'br.com.swapi.services.PlanetService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2019-11-09 02:09:41 INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-11-09 02:09:41 ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in br.com.swapi.resources.PlanetResource required a bean of type 'br.com.swapi.services.PlanetService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'br.com.swapi.services.PlanetService' in your configuration.
+
+2019-11-09 02:11:06 INFO  br.com.swapi.StarwarsapiApplication - Starting StarwarsapiApplication on daniel-670Z5E with PID 29932 (/home/daniel/Documentos/workspace_STS/starwarsapi/target/classes started by daniel in /home/daniel/Documentos/workspace_STS/starwarsapi)
+2019-11-09 02:11:06 DEBUG br.com.swapi.StarwarsapiApplication - Running with Spring Boot v2.2.1.RELEASE, Spring v5.2.1.RELEASE
+2019-11-09 02:11:06 INFO  br.com.swapi.StarwarsapiApplication - The following profiles are active: dev
+2019-11-09 02:11:06 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-11-09 02:11:06 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-11-09 02:11:07 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-11-09 02:11:07 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 58ms. Found 4 repository interfaces.
+2019-11-09 02:11:07 INFO  io.undertow.servlet - Initializing Spring embedded WebApplicationContext
+2019-11-09 02:11:07 INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1228 ms
+2019-11-09 02:11:07 INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-11-09 02:11:07 INFO  org.mongodb.driver.cluster - Adding discovered server localhost:27017 to client view of cluster
+2019-11-09 02:11:07 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING}]
+2019-11-09 02:11:08 INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:35}] to localhost:27017
+2019-11-09 02:11:08 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:11:08 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 3 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:11:08 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 3 completed successfully in 14.55 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:11:08 INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 1]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=19044910}
+2019-11-09 02:11:08 INFO  org.mongodb.driver.cluster - Discovered cluster type of STANDALONE
+2019-11-09 02:11:08 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=19.0 ms, state=CONNECTED}]
+2019-11-09 02:11:08 WARN  o.s.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2019-11-09 02:11:08 WARN  o.s.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2019-11-09 02:11:08 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-11-09 02:11:08 WARN  o.s.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2019-11-09 02:11:08 WARN  o.s.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2019-11-09 02:11:09 INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-11-09 02:11:09 INFO  io.undertow - starting server: Undertow - 2.0.27.Final
+2019-11-09 02:11:09 INFO  org.xnio - XNIO version 3.3.8.Final
+2019-11-09 02:11:09 INFO  org.xnio.nio - XNIO NIO Implementation Version 3.3.8.Final
+2019-11-09 02:11:09 INFO  o.s.b.w.e.u.UndertowServletWebServer - Undertow started on port(s) 8080 (http) with context path ''
+2019-11-09 02:11:09 INFO  br.com.swapi.StarwarsapiApplication - Started StarwarsapiApplication in 3.55 seconds (JVM running for 4.119)
+2019-11-09 02:11:18 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:11:18 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 4 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:11:18 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 4 completed successfully in 2.06 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:11:18 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=15.8 ms, state=CONNECTED}]
+2019-11-09 02:11:28 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:11:28 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 5 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:11:28 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 5 completed successfully in 2.69 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:11:28 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=13.5 ms, state=CONNECTED}]
+2019-11-09 02:11:38 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:11:38 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 6 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:11:38 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 6 completed successfully in 3.06 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:11:38 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=11.8 ms, state=CONNECTED}]
+2019-11-09 02:11:48 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:11:48 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 7 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:11:48 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 7 completed successfully in 2.85 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:11:48 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=10.4 ms, state=CONNECTED}]
+2019-11-09 02:11:58 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:11:58 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 8 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:11:58 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 8 completed successfully in 2.93 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:11:58 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=9.2 ms, state=CONNECTED}]
+2019-11-09 02:12:08 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:12:08 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 9 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:12:08 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 9 completed successfully in 1.82 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:12:08 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=7.9 ms, state=CONNECTED}]
+2019-11-09 02:12:18 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:12:18 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 10 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:12:18 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 10 completed successfully in 2.10 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:12:18 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=7.0 ms, state=CONNECTED}]
+2019-11-09 02:12:28 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:12:28 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 11 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:12:28 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 11 completed successfully in 2.12 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:12:28 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=6.4 ms, state=CONNECTED}]
+2019-11-09 02:12:38 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:12:38 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 12 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:12:38 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 12 completed successfully in 0.98 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:12:38 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=5.4 ms, state=CONNECTED}]
+2019-11-09 02:12:48 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:12:48 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 13 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:12:48 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 13 completed successfully in 1.82 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:12:48 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=4.9 ms, state=CONNECTED}]
+2019-11-09 02:12:58 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:12:58 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 14 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:12:58 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 14 completed successfully in 1.71 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:12:58 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=4.5 ms, state=CONNECTED}]
+2019-11-09 02:13:08 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:13:08 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 15 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:13:08 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 15 completed successfully in 2.05 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:13:08 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=4.3 ms, state=CONNECTED}]
+2019-11-09 02:13:18 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:13:18 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 16 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:13:18 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 16 completed successfully in 2.23 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:13:18 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=4.2 ms, state=CONNECTED}]
+2019-11-09 02:13:28 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:13:28 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 17 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:13:28 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 17 completed successfully in 1.70 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:13:28 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=3.9 ms, state=CONNECTED}]
+2019-11-09 02:13:38 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:13:38 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 18 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:13:38 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 18 completed successfully in 1.65 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:13:38 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=3.7 ms, state=CONNECTED}]
+2019-11-09 02:13:48 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:13:48 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 19 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:13:48 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 19 completed successfully in 1.75 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:13:48 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=3.5 ms, state=CONNECTED}]
+2019-11-09 02:13:58 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:13:58 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 20 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:13:58 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 20 completed successfully in 1.32 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:13:58 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=3.3 ms, state=CONNECTED}]
+2019-11-09 02:14:08 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:14:08 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 21 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:14:08 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 21 completed successfully in 1.55 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:14:08 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=3.1 ms, state=CONNECTED}]
