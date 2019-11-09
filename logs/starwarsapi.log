@@ -204,3 +204,43 @@ Consider defining a bean of type 'br.com.swapi.services.PlanetService' in your c
 2019-11-09 02:14:08 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 21 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
 2019-11-09 02:14:08 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 21 completed successfully in 1.55 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
 2019-11-09 02:14:08 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=3.1 ms, state=CONNECTED}]
+2019-11-09 02:14:18 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:14:18 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 22 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:14:18 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 22 completed successfully in 1.70 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:14:18 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=3.0 ms, state=CONNECTED}]
+2019-11-09 02:14:28 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:14:28 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 23 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:14:28 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 23 completed successfully in 1.62 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:14:28 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=3.0 ms, state=CONNECTED}]
+2019-11-09 02:14:38 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:14:38 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 24 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:14:38 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 24 completed successfully in 1.70 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:14:38 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=3.0 ms, state=CONNECTED}]
+2019-11-09 02:14:48 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:14:48 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 25 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:14:48 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 25 completed successfully in 1.56 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:14:48 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=3.0 ms, state=CONNECTED}]
+2019-11-09 02:14:58 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:14:58 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 26 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:14:58 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 26 completed successfully in 1.79 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:14:58 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=2.9 ms, state=CONNECTED}]
+2019-11-09 02:15:08 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:15:08 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 27 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:15:08 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 27 completed successfully in 1.37 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:15:08 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=2.8 ms, state=CONNECTED}]
+2019-11-09 02:15:18 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:15:18 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 28 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:15:18 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 28 completed successfully in 1.33 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:15:18 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=2.7 ms, state=CONNECTED}]
+2019-11-09 02:15:28 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:15:28 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 29 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:15:28 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 29 completed successfully in 1.59 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:15:28 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=2.7 ms, state=CONNECTED}]
+2019-11-09 02:15:38 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:15:38 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 30 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:15:38 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 30 completed successfully in 5.31 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:15:38 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=4.1 ms, state=CONNECTED}]
+2019-11-09 02:15:48 DEBUG org.mongodb.driver.cluster - Checking status of localhost:27017
+2019-11-09 02:15:48 DEBUG org.mongodb.driver.protocol.command - Sending command '{"ismaster": 1, "$db": "admin"}' with request id 31 to database admin on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:15:48 DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 31 completed successfully in 1.41 ms on connection [connectionId{localValue:1, serverValue:35}] to server localhost:27017
+2019-11-09 02:15:48 DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=localhost:27017, type=STANDALONE, roundTripTime=3.8 ms, state=CONNECTED}]
