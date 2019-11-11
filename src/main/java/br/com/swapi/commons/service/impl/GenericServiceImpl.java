@@ -62,7 +62,7 @@ public abstract class GenericServiceImpl<E extends BaseEntity, ID extends Serial
 	public GenericServiceImpl(R repository) {
 		this.repository = repository;
 		GenericsInfo genericsInfo = GenericsUtils.getGenericsInfo(this);
-		this.entityClass = genericsInfo.getType(1);
+		this.entityClass = genericsInfo.getType(0);
 		this.entityPath = new PathBuilder<E>(this.entityClass, Util.varName(this.entityClass));
 	}
 
@@ -73,10 +73,10 @@ public abstract class GenericServiceImpl<E extends BaseEntity, ID extends Serial
 
 	@Override
 	public E getById(ID id) throws EntityNotFoundException, ValidationException {
+		if (id == null) {
+			throw new ValidationException(ID_NAO_INFORMADO);
+		}
 		try {
-			if (id == null) {
-				throw new ValidationException(ID_NAO_INFORMADO);
-			}
 			log.info("Obter {} pelo id {}.", entityClass.getName(), id);
 			Optional<E> optional = this.repository.findById(id);
 
@@ -88,6 +88,8 @@ public abstract class GenericServiceImpl<E extends BaseEntity, ID extends Serial
 			doAfterLoad(optional.get());
 
 			return optional.get();
+		} catch (EntityNotFoundException e) {
+			throw new EntityNotFoundException(e.getMessage());
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 			throw new RuntimeException(e);
@@ -107,11 +109,17 @@ public abstract class GenericServiceImpl<E extends BaseEntity, ID extends Serial
 		if (entity == null) {
 			return null;
 		}
+
 		doBeforeSave(entity);
+
 		log.info("Salvando entidade {}", entity);
+
 		checkAuditedEntity(entity);
+
 		entity = this.repository.save(entity);
+
 		doAfterSave(entity);
+
 		return entity;
 	}
 
@@ -128,8 +136,7 @@ public abstract class GenericServiceImpl<E extends BaseEntity, ID extends Serial
 			return null;
 		}
 
-		@SuppressWarnings("unchecked")
-		E entityOriginal = getRepository().findById((ID) entity.getId())
+		E entityOriginal = getRepository().findById(id)
 				.orElseThrow(() -> new RuntimeException("Entidade com ID " + id + " não encontrada"));
 
 		doBeforeUpdate(entity);
@@ -138,10 +145,11 @@ public abstract class GenericServiceImpl<E extends BaseEntity, ID extends Serial
 
 		BeanUtils.copyProperties(entity, entityOriginal, getNullPropertyNames(entity));
 
-		checkAuditedEntity(entity);
+		checkAuditedEntity(entityOriginal);
 
-		entity = this.repository.save(entity);
-		doAfterUpdate(entity);
+		entity = this.repository.save(entityOriginal);
+
+		doAfterUpdate(entityOriginal);
 
 		return entity;
 	}
@@ -177,6 +185,11 @@ public abstract class GenericServiceImpl<E extends BaseEntity, ID extends Serial
 		return this.repository.findAll();
 	}
 
+	/*
+	 * Referência
+	 * https://www.it-swarm.net/pt/java/como-ignorar-valores-nulos-usando-
+	 * springframework-beanutils-copyproperties/1043455506/
+	 */
 	private static String[] getNullPropertyNames(Object source) {
 		final BeanWrapper src = new BeanWrapperImpl(source);
 		java.beans.PropertyDescriptor[] pds = src.getPropertyDescriptors();
@@ -215,8 +228,10 @@ public abstract class GenericServiceImpl<E extends BaseEntity, ID extends Serial
 		}
 	}
 
+	// TODO: Melhorar as consultas com QueryDSL.
 	protected final MorphiaQuery<E> select() {
 		MongoClient client = new MongoClient(mongoHost, Integer.valueOf(mongoPort));
+		// Morphia não consegue pegar o ID na herança de classes
 		Morphia morphia = new Morphia().map(this.entityClass);
 		Datastore ds = morphia.createDatastore(client, mongoDatabase);
 		return new MorphiaQuery<E>(morphia, ds, entityPath);

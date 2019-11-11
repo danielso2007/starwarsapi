@@ -1,5 +1,7 @@
 package br.com.swapi.entities;
 
+import java.util.List;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.querydsl.core.annotations.QueryEntity;
@@ -23,8 +25,8 @@ public class Planet extends BaseAudit {
 	private static final long serialVersionUID = -6501107036834466748L;
 
 	private String name;
-	private String climate;
-	private String terrain;
+	private List<Object> climate;
+	private List<Object> terrain;
 	private Integer films;
 
 }

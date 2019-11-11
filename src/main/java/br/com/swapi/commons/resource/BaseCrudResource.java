@@ -35,7 +35,9 @@ public abstract class BaseCrudResource<E extends BaseEntity, ID extends Serializ
 		super(service);
 		this.service = service;
 		GenericsInfo genericsInfo = GenericsUtils.getGenericsInfo(this);
+		// Obtendo a class da entidade
 		this.entityClass = genericsInfo.getType(0);
+		// Obtendo o path da classe do QueryDSL
 		this.entityPath = new PathBuilder<E>(this.entityClass, Util.varName(this.entityClass));
 	}
 

@@ -14,7 +14,6 @@ public abstract class BaseResponse<E extends BaseEntity> {
 
 	protected final ResponseEntity<?> responseError(Exception e, HttpStatus status) {
 		log.error("Resource erro", e);
-		e.printStackTrace();
 		Response<E> response = new Response<E>();
 		response.addError(e.getMessage());
 		if (e instanceof ValidationException) {
@@ -22,15 +21,15 @@ public abstract class BaseResponse<E extends BaseEntity> {
 		}
 		return ResponseEntity.status(status == null ? HttpStatus.BAD_REQUEST : status).body(response);
 	}
-	
+
 	protected final ResponseEntity<?> responseErrorBadRequest(Exception e) {
 		return responseError(e, HttpStatus.BAD_REQUEST);
 	}
-	
+
 	protected final ResponseEntity<?> responseErrorInternalServerError(Exception e) {
 		return responseError(e, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
-	
+
 	protected final ResponseEntity<Response<E>> ok() {
 		return ResponseEntity.ok().build();
 	}
@@ -46,7 +45,7 @@ public abstract class BaseResponse<E extends BaseEntity> {
 		response.setData(list);
 		return ResponseEntity.ok(response);
 	}
-	
+
 	protected final ResponseEntity<?> genericError(Exception e) {
 		if (e instanceof ValidationException || e instanceof EntityNotFoundException) {
 			return responseErrorBadRequest(e);

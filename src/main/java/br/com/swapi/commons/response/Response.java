@@ -6,12 +6,8 @@ import java.util.List;
 public class Response<T> {
 
 	private T data;
-	private List<String> errors = new ArrayList<>();
-	private boolean validation = false;
-
-	public void addError(String error) {
-		getErrors().add(error);
-	}
+	private List<String> errors;
+	private Boolean validation;
 
 	public Response() {
 	}
@@ -24,10 +20,14 @@ public class Response<T> {
 		this.data = data;
 	}
 
-	public List<String> getErrors() {
+	public void addError(String error) {
 		if (this.errors == null) {
 			this.errors = new ArrayList<>();
 		}
+		this.errors.add(error);
+	}
+
+	public List<String> getErrors() {
 		return errors;
 	}
 
@@ -35,11 +35,11 @@ public class Response<T> {
 		this.errors = errors;
 	}
 
-	public boolean isValidation() {
+	public Boolean isValidation() {
 		return validation;
 	}
 
-	public void setValidation(boolean validation) {
+	public void setValidation(Boolean validation) {
 		this.validation = validation;
 	}
 

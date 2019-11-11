@@ -27,7 +27,9 @@ public abstract class BaseSearchResource<E extends BaseEntity, ID extends Serial
 	public BaseSearchResource(S service) {
 		this.service = service;
 		GenericsInfo genericsInfo = GenericsUtils.getGenericsInfo(this);
+		// Obter a class da entidade usada.
 		this.entityClass = genericsInfo.getType(0);
+		// Obter o path do QueryDSL.
 		this.entityPath = new PathBuilder<E>(this.entityClass, Util.varName(this.entityClass));
 	}
 
@@ -44,5 +46,5 @@ public abstract class BaseSearchResource<E extends BaseEntity, ID extends Serial
 			return (ResponseEntity<Response<Iterable<E>>>) genericError(e);
 		}
 	}
-	
+
 }
