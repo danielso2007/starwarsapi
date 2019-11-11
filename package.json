@@ -1,0 +1,26 @@
+{
+  "name": "starwarsapi",
+  "version": "0.0.0",
+  "description": "Projeto API de pesquisa.",
+  "main": "index.js",
+  "scripts": {
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielso2007/starwarsapi.git"
+  },
+  "keywords": [
+    "api",
+    "rest",
+    "http",
+    "spring",
+    "boot"
+  ],
+  "author": "Daniel da Silva Oliveira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielso2007/starwarsapi/issues"
+  },
+  "homepage": "https://github.com/danielso2007/starwarsapi#readme"
+}
