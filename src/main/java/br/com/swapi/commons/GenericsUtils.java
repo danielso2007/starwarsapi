@@ -5,28 +5,30 @@ import java.lang.reflect.Type;
 
 public class GenericsUtils {
 
-    private GenericsUtils() {
-    }
+	private GenericsUtils() {
+	}
 
-    public static GenericsInfo getGenericsInfo(Object instance) {
-        Class<?>[] types = findGenericTypes(instance);
-        return new GenericsInfo(types);
-    }
+	public static synchronized GenericsInfo getGenericsInfo(Object instance) {
+		Class<?>[] types = findGenericTypes(instance);
+		return new GenericsInfo(types);
+	}
 
-    private static Class<?>[] findGenericTypes(Object instance) {
-        Type type = instance.getClass().getGenericSuperclass();
-        if (!(type instanceof ParameterizedType)) {
-            type = instance.getClass().getSuperclass().getGenericSuperclass();
-        }
+	private static Class<?>[] findGenericTypes(Object instance) {
+		Type type = instance.getClass().getGenericSuperclass();
 
-        ParameterizedType genericType = (ParameterizedType) ParameterizedType.class.cast(type);
-        int numParams = genericType.getActualTypeArguments().length;
-        Class<?>[] result = new Class[numParams];
+		if (!(type instanceof ParameterizedType)) {
+			type = instance.getClass().getSuperclass().getGenericSuperclass();
+		}
 
-        for (int i = 0; i < numParams; ++i) {
-            result[i] = (Class<?>) genericType.getActualTypeArguments()[i];
-        }
+		ParameterizedType genericType = (ParameterizedType) ParameterizedType.class.cast(type);
+		int numParams = genericType.getActualTypeArguments().length;
 
-        return result;
-    }
+		Class<?>[] result = new Class[numParams];
+
+		for (int i = 0; i < numParams; ++i) {
+			result[i] = (Class<?>) genericType.getActualTypeArguments()[i];
+		}
+
+		return result;
+	}
 }

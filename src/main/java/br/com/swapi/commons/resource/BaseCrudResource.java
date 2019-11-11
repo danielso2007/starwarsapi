@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,37 +13,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.querydsl.core.types.EntityPath;
-import com.querydsl.core.types.dsl.PathBuilder;
-
 import br.com.swapi.commons.BaseRepository;
-import br.com.swapi.commons.GenericsInfo;
-import br.com.swapi.commons.GenericsUtils;
-import br.com.swapi.commons.Util;
 import br.com.swapi.commons.entity.BaseEntity;
 import br.com.swapi.commons.response.Response;
-import br.com.swapi.commons.service.GenericService;
+import br.com.swapi.commons.service.BaseService;
+import br.com.swapi.commons.type.BaseSearchTypeDTO;
 
-public abstract class BaseCrudResource<E extends BaseEntity, ID extends Serializable, R extends BaseRepository<E, ID>, S extends GenericService<E, ID, R>>
-		extends BaseSearchResource<E, ID, R, S> {
-
-	private S service;
-
-	protected final EntityPath<E> entityPath;
-	private Class<E> entityClass;
+public abstract class BaseCrudResource<E extends BaseEntity, P extends BaseSearchTypeDTO, ID extends Serializable, R extends BaseRepository<E, ID>, S extends BaseService<E, P, ID, R>>
+		extends BaseSearchResource<E, P, ID, R, S> {
 
 	public BaseCrudResource(S service) {
 		super(service);
-		this.service = service;
-		GenericsInfo genericsInfo = GenericsUtils.getGenericsInfo(this);
-		// Obtendo a class da entidade
-		this.entityClass = genericsInfo.getType(0);
-		// Obtendo o path da classe do QueryDSL
-		this.entityPath = new PathBuilder<E>(this.entityClass, Util.varName(this.entityClass));
-	}
-
-	protected S getService() {
-		return this.service;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -57,7 +38,10 @@ public abstract class BaseCrudResource<E extends BaseEntity, ID extends Serializ
 
 	@SuppressWarnings("unchecked")
 	@PostMapping()
-	public ResponseEntity<Response<E>> save(@Valid @RequestBody E objDTO) {
+	public ResponseEntity<Response<E>> save(@Valid @RequestBody E objDTO, BindingResult result) {
+		if (result.hasErrors()) {
+			return checkErrors(result);
+		}
 		try {
 			return ok((E) getService().save(objDTO));
 		} catch (Exception e) {
@@ -67,7 +51,7 @@ public abstract class BaseCrudResource<E extends BaseEntity, ID extends Serializ
 
 	@SuppressWarnings("unchecked")
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<Response<E>> update(@Valid @RequestBody E objDTO, @PathVariable ID id) {
+	public ResponseEntity<Response<E>> update(@RequestBody E objDTO, @PathVariable ID id) {
 		try {
 			return ok((E) getService().update(objDTO, id));
 		} catch (Exception e) {

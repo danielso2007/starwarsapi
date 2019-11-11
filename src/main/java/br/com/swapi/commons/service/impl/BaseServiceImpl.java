@@ -17,35 +17,39 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mongodb.MongoClient;
+import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.EntityPath;
 import com.querydsl.core.types.dsl.PathBuilder;
 import com.querydsl.mongodb.morphia.MorphiaQuery;
 
 import br.com.swapi.commons.BaseRepository;
-import br.com.swapi.commons.GenericsInfo;
 import br.com.swapi.commons.GenericsUtils;
 import br.com.swapi.commons.Util;
 import br.com.swapi.commons.entity.BaseAudit;
 import br.com.swapi.commons.entity.BaseEntity;
 import br.com.swapi.commons.lang.EntityNotFoundException;
 import br.com.swapi.commons.lang.ServiceException;
-import br.com.swapi.commons.service.GenericService;
+import br.com.swapi.commons.service.BaseService;
+import br.com.swapi.commons.type.BaseSearchTypeDTO;
 
 @Transactional(readOnly = true, rollbackFor = { Exception.class })
-public abstract class GenericServiceImpl<E extends BaseEntity, ID extends Serializable, R extends BaseRepository<E, ID>>
-		implements GenericService<E, ID, R> {
+public abstract class BaseServiceImpl<E extends BaseEntity, P extends BaseSearchTypeDTO, ID extends Serializable, R extends BaseRepository<E, ID>>
+		implements BaseService<E, P, ID, R> {
 
 	public static final String NAO_EXISTE_REGISTRO_COM_O_ID_INFORMADO = "Não existe registro com o ID informado.";
 	public static final String ID_NAO_INFORMADO = "Id não informado.";
 	public static final String ENTIDADE_NAO_INFORMADA = "Entidade não informada.";
 	public static final String ENTIDADE_NAO_ENCONTRADA = "Entidade não encontrada.";
 
-	private Logger log = LoggerFactory.getLogger(GenericServiceImpl.class);
+	private Logger log = LoggerFactory.getLogger(BaseServiceImpl.class);
 
-	private R repository;
+	private final R repository;
 
 	@Value("spring.data.mongodb.database")
 	private String mongoDatabase;
@@ -56,19 +60,13 @@ public abstract class GenericServiceImpl<E extends BaseEntity, ID extends Serial
 	@Value("${spring.data.mongodb.port}")
 	private String mongoPort;
 
-	protected final EntityPath<E> entityPath;
-	private Class<E> entityClass;
+	private final EntityPath<E> entityPath;
+	private final Class<E> entityClass;
 
-	public GenericServiceImpl(R repository) {
+	public BaseServiceImpl(R repository) {
 		this.repository = repository;
-		GenericsInfo genericsInfo = GenericsUtils.getGenericsInfo(this);
-		this.entityClass = genericsInfo.getType(0);
-		this.entityPath = new PathBuilder<E>(this.entityClass, Util.varName(this.entityClass));
-	}
-
-	@Override
-	public Class<E> getEntityClass() {
-		return entityClass;
+		this.entityClass = GenericsUtils.getGenericsInfo(this).getType(0);
+		this.entityPath = new PathBuilder<E>(this.entityClass, Util.getInstance().varName(this.entityClass));
 	}
 
 	@Override
@@ -176,14 +174,34 @@ public abstract class GenericServiceImpl<E extends BaseEntity, ID extends Serial
 	}
 
 	@Override
-	public R getRepository() {
-		return repository;
-	}
-
-	@Override
 	public Iterable<E> getAll() {
 		return this.repository.findAll();
 	}
+
+	protected Pageable createPageableSearch(int page, int count) throws ServiceException {
+		return PageRequest.of(page, count);
+	};
+
+	protected void createPredicated(BooleanBuilder booleanBuilder, P filter) {
+	};
+
+	@Override
+	public Page<E> search(int page, int count, P filter) throws ServiceException {
+		try {
+			Pageable pageable = createPageableSearch(page, count);
+			BooleanBuilder booleanBuilder = new BooleanBuilder();
+			createPredicated(booleanBuilder, filter);
+			Page<E> pages = getRepository().findAll(booleanBuilder, pageable);
+			afterSearch(pages, filter);
+			return pages;
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+			throw new ServiceException(e);
+		}
+	}
+
+	protected void afterSearch(Page<E> pages, P filter) throws ServiceException {
+	};
 
 	/*
 	 * Referência
@@ -207,15 +225,18 @@ public abstract class GenericServiceImpl<E extends BaseEntity, ID extends Serial
 		return emptyNames.toArray(result);
 	}
 
-	protected void throwException(Exception e, String local) throws ServiceException {
-		e.printStackTrace();
-		log.error(e.getMessage(), e);
-	}
-
 	private void checkAuditedEntity(E entity) {
 		if (entity instanceof BaseAudit) {
 			BaseAudit auditedEntity = (BaseAudit) entity;
+
+			// Garantir que não vieram informações do front-end.
+			auditedEntity.setCreator(null);
+			auditedEntity.setCreatedAt(null);
+			auditedEntity.setUpdater(null);
+			auditedEntity.setUpdatedAt(null);
+
 			Date date = new Date();
+
 			if (auditedEntity.getId() == null) {
 				auditedEntity.setCreatedAt(date);
 				// TODO: Quando houver segurança, adicionar o usuário logado
@@ -235,6 +256,21 @@ public abstract class GenericServiceImpl<E extends BaseEntity, ID extends Serial
 		Morphia morphia = new Morphia().map(this.entityClass);
 		Datastore ds = morphia.createDatastore(client, mongoDatabase);
 		return new MorphiaQuery<E>(morphia, ds, entityPath);
+	}
+
+	@Override
+	public final R getRepository() {
+		return repository;
+	}
+
+	@Override
+	public final Class<E> getEntityClass() {
+		return entityClass;
+	}
+
+	@Override
+	public final EntityPath<E> getEntityPath() {
+		return entityPath;
 	}
 
 }
