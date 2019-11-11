@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/danielso2007/starwarsapi/compare/v1.0.0...v1.1.0) (2019-11-11)
+
+
+### Features
+
+* Refatorando código para inclusão de DTO nas chamadas REST. ([8ebc2a7](https://github.com/danielso2007/starwarsapi/commit/8ebc2a731ab175deb3f9df0fff646f4fea85f765))
+
 ## 1.0.0 (2019-11-11)
 
 
