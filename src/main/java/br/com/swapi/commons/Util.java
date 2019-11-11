@@ -20,7 +20,7 @@ public final class Util {
 	 */
 	public String varName(Class<?> clazz) {
 		String className = clazz.getSimpleName();
-		char c[] = className.toCharArray();
+		char[] c = className.toCharArray();
 		c[0] = Character.toLowerCase(c[0]);
 		return new String(c);
 	}

@@ -20,7 +20,7 @@ public class GenericsUtils {
 			type = instance.getClass().getSuperclass().getGenericSuperclass();
 		}
 
-		ParameterizedType genericType = (ParameterizedType) ParameterizedType.class.cast(type);
+		ParameterizedType genericType = (ParameterizedType) type;
 		int numParams = genericType.getActualTypeArguments().length;
 
 		Class<?>[] result = new Class[numParams];

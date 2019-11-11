@@ -4,6 +4,8 @@ public class ValidationException extends ServiceException {
 
 	private static final long serialVersionUID = 2131502432258359475L;
 
+	private Boolean validation = Boolean.TRUE;
+
 	public ValidationException(String message) {
         super(message);
     }
@@ -17,7 +19,7 @@ public class ValidationException extends ServiceException {
     }
 
     public boolean isValidation() {
-        return Boolean.TRUE;
+        return validation;
     }
 
 }

@@ -1,5 +1,6 @@
 package br.com.swapi.services.impl;
 
+import br.com.swapi.dto.PlanetDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import br.com.swapi.repositories.PlanetRepository;
 import br.com.swapi.services.PlanetService;
 
 @Service
-public class PlanetServiceImpl extends BaseServiceImpl<Planet, PlanetSearchDTO, String, PlanetRepository>
+public class PlanetServiceImpl extends BaseServiceImpl<Planet, PlanetSearchDTO, PlanetDTO, String, PlanetRepository>
 		implements PlanetService {
 
 	@Autowired

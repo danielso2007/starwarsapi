@@ -1,28 +1,27 @@
 package br.com.swapi.commons.resource;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
-
-import br.com.swapi.commons.entity.BaseEntity;
 import br.com.swapi.commons.lang.EntityNotFoundException;
 import br.com.swapi.commons.lang.ValidationException;
 import br.com.swapi.commons.response.Response;
 import br.com.swapi.commons.response.Response.ResponseBuilder;
+import br.com.swapi.commons.type.BaseTypeDTO;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
-public abstract class BaseResponse<E extends BaseEntity> {
+public abstract class BaseResponse<T extends BaseTypeDTO> {
 
 	protected final ResponseEntity<?> responseError(Exception e, HttpStatus status) {
 		log.error("Resource erro", e);
-		List<String> listError = new ArrayList<String>();
+		List<String> listError = new ArrayList<>();
 		listError.add(e.getMessage());
 
-		ResponseBuilder<E> responseBuilder = Response.<E>builder();
+		ResponseBuilder<T> responseBuilder = Response.builder();
 		responseBuilder.errors(listError);
 
 		if (e instanceof ValidationException) {
@@ -40,16 +39,16 @@ public abstract class BaseResponse<E extends BaseEntity> {
 		return responseError(e, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
-	protected final ResponseEntity<Response<E>> ok() {
+	protected final ResponseEntity<Response<T>> ok() {
 		return ResponseEntity.ok().build();
 	}
 
-	protected final ResponseEntity<Response<E>> ok(E entity) {
-		return ResponseEntity.ok(Response.<E>builder().data(entity).build());
+	protected final ResponseEntity<Response<T>> ok(T entity) {
+		return ResponseEntity.ok(Response.<T>builder().data(entity).build());
 	}
 
-	protected final ResponseEntity<Response<Iterable<E>>> ok(Iterable<E> list) {
-		return ResponseEntity.ok(Response.<Iterable<E>>builder().data(list).build());
+	protected final ResponseEntity<Response<Iterable<T>>> ok(Iterable<T> list) {
+		return ResponseEntity.ok(Response.<Iterable<T>>builder().data(list).build());
 	}
 
 	protected final ResponseEntity<?> genericError(Exception e) {
@@ -60,8 +59,8 @@ public abstract class BaseResponse<E extends BaseEntity> {
 		}
 	}
 
-	protected ResponseEntity<Response<E>> checkErrors(BindingResult result) {
-		Response<E> response = Response.<E>builder().build();
+	protected ResponseEntity<Response<T>> checkErrors(BindingResult result) {
+		Response<T> response = Response.<T>builder().build();
 		result.getAllErrors().forEach(error -> response.addError(error.getDefaultMessage()));
 		return ResponseEntity.badRequest().body(response);
 	}

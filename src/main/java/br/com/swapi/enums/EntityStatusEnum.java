@@ -5,11 +5,11 @@ public enum EntityStatusEnum {
 	INACTIVE("Inativo"),
 	ACTIVE("Ativo");
 	
-	private EntityStatusEnum(String description) {
+	EntityStatusEnum(String description) {
 		this.description = description;
 	}
 
-	private String description;
+	private final String description;
 
 	public String getDescription() {
 		return description;

@@ -1,5 +1,6 @@
 package br.com.swapi.resources;
 
+import br.com.swapi.dto.PlanetDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,7 @@ import br.com.swapi.services.PlanetService;
 @RestController
 @RequestMapping(Constants.ROOT_URL + "planets")
 @CrossOrigin(origins = "*")
-public class PlanetResource extends BaseCrudResource<Planet, PlanetSearchDTO, String, PlanetRepository, PlanetService> {
+public class PlanetResource extends BaseCrudResource<Planet, PlanetSearchDTO, PlanetDTO, String, PlanetRepository, PlanetService> {
 
 	@Autowired
 	public PlanetResource(PlanetService service) {

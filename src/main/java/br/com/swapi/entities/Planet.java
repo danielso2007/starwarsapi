@@ -32,18 +32,9 @@ public class Planet extends BaseAudit {
 
 	private static final long serialVersionUID = -6501107036834466748L;
 
-	@NotBlank(message = "Nome é obrigatório")
-	@NotNull(message = "Nome não pode ser nulo")
-	@Size(min = 2, max = 20, message = "Nome deve ter entre 2 e 20 caracteres")
 	private String name;
-	@NotNull(message = "Clima é obrigatório")
-	@Size(min = 1, message = "Pelo menos um clima deve ser informado")
 	private List<Object> climate;
-	@NotNull(message = "Terreno é obrigatório")
-	@Size(min = 1, message = "Pelo menos um terreno deve ser informado")
 	private List<Object> terrain;
-	@Min(value = 0, message = "Quantidades de filmes não pode ser menor que 0")
-	@Max(value = 10, message = "Quantidades de filmes não pode ser maior que 10")
 	private Integer films;
 
 }

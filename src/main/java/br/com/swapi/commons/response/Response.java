@@ -20,12 +20,11 @@ public class Response<T> {
 	private List<String> errors;
 	private Boolean validation;
 
-	public List<String> addError(String error) {
+	public void addError(String error) {
 		if (this.errors == null) {
 			this.errors = new ArrayList<>();
 		}
 		this.errors.add(error);
-		return this.errors;
 	}
 
 }
