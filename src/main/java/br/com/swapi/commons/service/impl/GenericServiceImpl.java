@@ -131,13 +131,13 @@ public abstract class GenericServiceImpl<E extends BaseEntity, ID extends Serial
 
 	@Override
 	@Transactional
-	public E update(E entity, ID id) throws ServiceException, ValidationException {
+	public E update(E entity, ID id) throws ServiceException, ValidationException, EntityNotFoundException {
 		if (entity == null) {
 			return null;
 		}
 
 		E entityOriginal = getRepository().findById(id)
-				.orElseThrow(() -> new RuntimeException("Entidade com ID " + id + " não encontrada"));
+				.orElseThrow(() -> new EntityNotFoundException("Entidade com ID " + id + " não encontrada"));
 
 		doBeforeUpdate(entity);
 
