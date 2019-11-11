@@ -34,6 +34,7 @@ import javax.validation.ValidationException;
 import java.beans.Transient;
 import java.io.Serializable;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Transactional(readOnly = true, rollbackFor = {Exception.class})
@@ -194,8 +195,7 @@ public abstract class BaseServiceImpl<E extends BaseEntity, P extends BaseSearch
         }
         doBeforeDelete(id);
         log.info("Deletando entidade id {}", id);
-        Optional<E> obj = this.repository.findById(id);
-        if (!obj.isPresent()) {
+        if (this.repository.countById(id) == 0) {
             throw new ServiceException(NAO_EXISTE_REGISTRO_COM_O_ID_INFORMADO);
         }
         this.repository.deleteById(id);
@@ -232,7 +232,7 @@ public abstract class BaseServiceImpl<E extends BaseEntity, P extends BaseSearch
     }
 
     protected Page<T> convertSearchPage(Page<E> page, Pageable pageable) {
-        return new PageImpl<T>(map(page.getContent()), pageable, page.getTotalElements());
+        return new PageImpl(map(page.getContent()), pageable, page.getTotalElements());
     }
 
     protected void afterSearch(Page<T> pages, P filter) throws ServiceException {
@@ -314,9 +314,7 @@ public abstract class BaseServiceImpl<E extends BaseEntity, P extends BaseSearch
     }
 
     private List<T> map(List<E> list) {
-        List<T> result = new ArrayList<T>();
-        list.forEach(e -> result.add(map(e)));
-        return result;
+        return list.stream().map(e -> map(e)).collect(Collectors.toList());
     }
 
     @Override
