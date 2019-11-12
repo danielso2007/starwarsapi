@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/danielso2007/starwarsapi/compare/v1.1.0...v1.2.0) (2019-11-12)
+
+
+### Features
+
+* Documentação do framework da aplicação. ([73e8dc1](https://github.com/danielso2007/starwarsapi/commit/73e8dc10337bed0b758ba9d1771738896b14fd47))
+* Inclusão do swagger para a documentação do endpoints da aplicação. ([7627f85](https://github.com/danielso2007/starwarsapi/commit/7627f85773acd88cd4c86c54476f60427266d329))
+
 ## [1.1.0](https://github.com/danielso2007/starwarsapi/compare/v1.0.0...v1.1.0) (2019-11-11)
 
 
