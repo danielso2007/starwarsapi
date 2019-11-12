@@ -195,9 +195,6 @@ public abstract class BaseServiceImpl<E extends BaseEntity, P extends BaseSearch
         }
         doBeforeDelete(id);
         log.info("Deletando entidade id {}", id);
-        if (this.repository.countById(id) == 0) {
-            throw new ServiceException(NAO_EXISTE_REGISTRO_COM_O_ID_INFORMADO);
-        }
         this.repository.deleteById(id);
     }
 

@@ -5,14 +5,14 @@ import java.io.Serializable;
 import javax.validation.Valid;
 
 import br.com.swapi.commons.type.BaseTypeDTO;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import br.com.swapi.commons.BaseRepository;
 import br.com.swapi.commons.entity.BaseEntity;
@@ -28,8 +28,15 @@ public abstract class BaseCrudResource<E extends BaseEntity, P extends BaseSearc
 	}
 
 	@SuppressWarnings("unchecked")
-	@GetMapping(value = "/{id}")
-	public ResponseEntity<Response<T>> byId(@PathVariable("id") ID id) {
+	@GetMapping(value = "/{id}", produces = "application/json")
+	@ApiOperation(value = "Obter registro pelo identificador", notes = "Será retornado um registro da base de dados.")
+	@ResponseStatus(HttpStatus.OK)
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Registro carregado com sucesso"),
+			@ApiResponse(code = 400, message = "Erro de dados ou validação")})
+	public ResponseEntity<Response<T>> byId(
+			@ApiParam("O identificador do registro. Não pode ser vazio.")
+			@PathVariable("id") ID id) {
 		try {
 			return ok(getService().getById(id));
 		} catch (Exception e) {
@@ -38,23 +45,37 @@ public abstract class BaseCrudResource<E extends BaseEntity, P extends BaseSearc
 	}
 
 	@SuppressWarnings("unchecked")
-	@PostMapping()
-	public ResponseEntity<Response<T>> save(@Valid @RequestBody T objDTO, BindingResult result) {
+	@PostMapping(produces = "application/json", consumes = "application/json")
+	@ApiOperation(value = "Salvar um novo registro", notes = "Cria um novo registro na base de dados.")
+	@ResponseStatus(HttpStatus.CREATED)
+	@ApiResponses(value = {
+			@ApiResponse(code = 201, message = "Registro criado com sucesso"),
+			@ApiResponse(code = 400, message = "Erro de dados ou validação")})
+	public ResponseEntity<Response<T>> save(
+			@ApiParam("O registro a ser criado.") @Valid @RequestBody T object,
+			BindingResult result) {
 		if (result.hasErrors()) {
 			return checkErrors(result);
 		}
 		try {
-			return ok(getService().save(objDTO));
+			return ok(getService().save(object));
 		} catch (Exception e) {
 			return (ResponseEntity<Response<T>>) genericError(e);
 		}
 	}
 
 	@SuppressWarnings("unchecked")
-	@PutMapping(value = "/{id}")
-	public ResponseEntity<Response<T>> update(@RequestBody T objDTO, @PathVariable ID id) {
+	@PutMapping(value = "/{id}", produces = "application/json", consumes = "application/json")
+	@ApiOperation(value = "Atualizar um registro", notes = "Atualiza um registro na base de dados.")
+	@ResponseStatus(HttpStatus.OK)
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Registro atualizado com sucesso"),
+			@ApiResponse(code = 400, message = "Erro de dados ou validação")})
+	public ResponseEntity<Response<T>> update(
+			@ApiParam("O registro a ser atualizado.") @RequestBody T object,
+			@ApiParam("O identificador do registro.") @PathVariable ID id) {
 		try {
-			return ok(getService().update(objDTO, id));
+			return ok(getService().update(object, id));
 		} catch (Exception e) {
 			return (ResponseEntity<Response<T>>) genericError(e);
 		}
@@ -62,7 +83,12 @@ public abstract class BaseCrudResource<E extends BaseEntity, P extends BaseSearc
 
 	@SuppressWarnings("unchecked")
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<Response<T>> delete(@PathVariable("id") ID id) {
+	@ApiOperation(value = "Deletar um registro")
+	@ResponseStatus(HttpStatus.OK)
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Registro deletado com sucesso"),
+			@ApiResponse(code = 400, message = "Erro de dados ou validação")})
+	public ResponseEntity<Response<T>> delete(@ApiParam("O identificador do registro.") @PathVariable("id") ID id) {
 		try {
 			getService().delete(id);
 			return ok();

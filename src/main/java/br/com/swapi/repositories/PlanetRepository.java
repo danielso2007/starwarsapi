@@ -7,5 +7,4 @@ import br.com.swapi.entities.Planet;
 
 @Repository
 public interface PlanetRepository extends BaseRepository<Planet, String> {
-
 }
