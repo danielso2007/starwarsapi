@@ -2,11 +2,7 @@ package br.com.swapi.commons.dto;
 
 import br.com.swapi.commons.type.BaseTypeDTO;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 /**

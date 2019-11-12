@@ -11,6 +11,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.*;
 
@@ -19,6 +20,7 @@ import javax.validation.constraints.*;
 @Data
 @EqualsAndHashCode(callSuper = true, of = { "name" })
 @ToString(of = { "name" })
+@SuperBuilder
 @ApiModel(description = "Modelo para criar um novo Planet")
 public class PlanetDTO extends BaseAuditDTO {
 

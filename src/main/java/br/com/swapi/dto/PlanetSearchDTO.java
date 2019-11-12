@@ -21,6 +21,7 @@ import javax.validation.constraints.Size;
 @Data
 @EqualsAndHashCode(callSuper = true, of = { "name" })
 @ToString(of = { "name" })
+@SuperBuilder
 @ApiModel(description = "Modelo para o filtro de pesquisa de planetas")
 public class PlanetSearchDTO extends BaseEntityDTO implements BaseSearchTypeDTO {
 

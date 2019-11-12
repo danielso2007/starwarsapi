@@ -298,10 +298,6 @@ public abstract class BaseServiceImpl<E extends BaseEntity, P extends BaseSearch
         return modelMapper.map(dto, entityClass);
     }
 
-    private List<T> map(Iterable<E> iterable) {
-        return map(iterable.iterator());
-    }
-
     private List<T> map(Iterator<E> iterator) {
         List<T> result = new ArrayList<T>();
         while (iterator.hasNext()) {

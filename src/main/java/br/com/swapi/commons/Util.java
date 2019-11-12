@@ -1,5 +1,7 @@
 package br.com.swapi.commons;
 
+import java.util.Collection;
+
 public final class Util {
 
 	private Util() {
@@ -23,6 +25,23 @@ public final class Util {
 		char[] c = className.toCharArray();
 		c[0] = Character.toLowerCase(c[0]);
 		return new String(c);
+	}
+
+	public boolean isEmpty(Object obj) {
+		if (obj == null) {
+			return true;
+		}
+		if (obj instanceof String) {
+			return ((String) obj).trim().isEmpty();
+		}
+		if (obj instanceof Collection) {
+			return ((Collection) obj).isEmpty();
+		}
+		return false;
+	}
+
+	public boolean isNotEmpty(Object obj) {
+		return isEmpty(obj);
 	}
 
 }
