@@ -1,5 +1,8 @@
 package br.com.swapi.commons.lang;
 
+/**
+ * Exceção lançadas nas camadas de serviço.
+ */
 public class ServiceException extends RuntimeException {
 
 	private static final long serialVersionUID = 3907740656436179046L;

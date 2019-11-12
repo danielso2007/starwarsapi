@@ -9,6 +9,9 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * Representa as entidades.
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Data

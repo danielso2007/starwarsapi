@@ -1,5 +1,8 @@
 package br.com.swapi.commons.lang;
 
+/**
+ * Exceção lançada para indicar um erro de validação.
+ */
 public class ValidationException extends ServiceException {
 
 	private static final long serialVersionUID = 2131502432258359475L;

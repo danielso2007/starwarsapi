@@ -11,6 +11,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/**
+ * Representa o retorno dos recursos.
+ * @param <T> O tipo de retorno.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,6 +30,10 @@ public class Response<T> {
 	@ApiModelProperty(notes = "Indica se as mensagens de erro são de validação", example = "true ou false")
 	private Boolean validation;
 
+	/**
+	 * Adiciona a mensagem de erro na lista.
+	 * @param error
+	 */
 	public void addError(String error) {
 		if (this.errors == null) {
 			this.errors = new ArrayList<>();

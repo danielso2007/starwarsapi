@@ -3,6 +3,9 @@ package br.com.swapi.commons;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
+/**
+ * Classe utilitária para obter o tipos definidos na generalização.
+ */
 public class GenericsUtils {
 
 	private GenericsUtils() {

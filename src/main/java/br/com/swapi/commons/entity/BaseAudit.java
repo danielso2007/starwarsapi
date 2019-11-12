@@ -14,6 +14,9 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/**
+ * Representa as entidades com auditoria.
+ */
 @QueryEntity
 @Document
 @NoArgsConstructor

@@ -6,6 +6,9 @@ import lombok.experimental.SuperBuilder;
 
 import java.util.Date;
 
+/**
+ * Representa as entidades com auditoria.
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Data()

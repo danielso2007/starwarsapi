@@ -15,6 +15,9 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/**
+ * Representa as entidades.
+ */
 @QueryEntity
 @Document
 @NoArgsConstructor

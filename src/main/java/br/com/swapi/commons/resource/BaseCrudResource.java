@@ -20,6 +20,15 @@ import br.com.swapi.commons.response.Response;
 import br.com.swapi.commons.service.BaseService;
 import br.com.swapi.commons.type.BaseSearchTypeDTO;
 
+/**
+ * Recurso básico com endpoints de CRUD.
+ * @param <E> Representa a entidade.
+ * @param <P> Representa o DTO de pesquisa.
+ * @param <T> Representa o DTO.
+ * @param <ID> O tipo do identificador.
+ * @param <R> O repositorio da entidade.
+ * @param <S> O serviço da entidade.
+ */
 public abstract class BaseCrudResource<E extends BaseEntity, P extends BaseSearchTypeDTO, T extends BaseTypeDTO, ID extends Serializable, R extends BaseRepository<E, ID>, S extends BaseService<E, P, T, ID, R>>
 		extends BaseSearchResource<E, P, T, ID, R, S> {
 
@@ -27,8 +36,13 @@ public abstract class BaseCrudResource<E extends BaseEntity, P extends BaseSearc
 		super(service);
 	}
 
+	/**
+	 * Pesquisa um registro na base de dados.
+	 * @param id O identificador do registro.
+	 * @return Um registro da base de dados.
+	 */
 	@SuppressWarnings("unchecked")
-	@GetMapping(value = "/{id}", produces = "application/json")
+	@GetMapping(value = "/{id}", produces = {"application/json", "application/xml"})
 	@ApiOperation(value = "Obter registro pelo identificador", notes = "Será retornado um registro da base de dados.")
 	@ResponseStatus(HttpStatus.OK)
 	@ApiResponses(value = {
@@ -44,6 +58,12 @@ public abstract class BaseCrudResource<E extends BaseEntity, P extends BaseSearc
 		}
 	}
 
+	/**
+	 * Salvar um registro na base de dados.
+	 * @param object O registro a ser gravado.
+	 * @param result represents binding results.
+	 * @return O registro cadastrado na base de dados.
+	 */
 	@SuppressWarnings("unchecked")
 	@PostMapping(produces = "application/json", consumes = "application/json")
 	@ApiOperation(value = "Salvar um novo registro", notes = "Cria um novo registro na base de dados.")
@@ -64,6 +84,12 @@ public abstract class BaseCrudResource<E extends BaseEntity, P extends BaseSearc
 		}
 	}
 
+	/**
+	 * Obter um registro na base de dados.
+	 * @param object O registro a ser atualizado.
+	 * @param id O identificador do registro.
+	 * @return O registro atualizado.
+	 */
 	@SuppressWarnings("unchecked")
 	@PutMapping(value = "/{id}", produces = "application/json", consumes = "application/json")
 	@ApiOperation(value = "Atualizar um registro", notes = "Atualiza um registro na base de dados.")
@@ -81,6 +107,11 @@ public abstract class BaseCrudResource<E extends BaseEntity, P extends BaseSearc
 		}
 	}
 
+	/**
+	 * Remove um registro na base de dados.
+	 * @param id O identificador do registro.
+	 * @return HttpStatus.OK
+	 */
 	@SuppressWarnings("unchecked")
 	@DeleteMapping(value = "/{id}")
 	@ApiOperation(value = "Deletar um registro")
