@@ -1,4 +1,4 @@
-package br.com.swapi.resources;
+package br.com.swapi.controllers;
 
 import br.com.swapi.dto.PlanetDTO;
 import io.swagger.annotations.Api;

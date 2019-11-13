@@ -41,7 +41,7 @@ public final class Util {
 	}
 
 	public boolean isNotEmpty(Object obj) {
-		return isEmpty(obj);
+		return !isEmpty(obj);
 	}
 
 }

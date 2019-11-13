@@ -1,12 +1,12 @@
 package br.com.swapi.suites;
 
-import br.com.swapi.services.PlanetServiceImplTest;
+import br.com.swapi.controllers.PlanetControllerTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        PlanetServiceImplTest.class
+        PlanetControllerTest.class
 })
-public class ServicesTestSuite {
+public class ResourcesTestSuite {
 }

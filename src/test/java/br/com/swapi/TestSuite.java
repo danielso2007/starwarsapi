@@ -1,5 +1,6 @@
 package br.com.swapi;
 
+import br.com.swapi.suites.ResourcesTestSuite;
 import br.com.swapi.suites.ServicesTestSuite;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -9,7 +10,8 @@ import org.springframework.test.context.ActiveProfiles;
 @SpringBootTest
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        ServicesTestSuite.class
+        ServicesTestSuite.class,
+        ResourcesTestSuite.class
 })
 @ActiveProfiles("test")
 public class TestSuite {

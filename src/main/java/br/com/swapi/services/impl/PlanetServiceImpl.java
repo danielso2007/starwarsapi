@@ -46,13 +46,13 @@ public class PlanetServiceImpl extends BaseServiceImpl<Planet, PlanetSearchDTO, 
 	// FIXME: Existe uma validação no DTO. Mas está sendo replicado aqui para a entidade.
 	//  Existe outra forma de validação sem a utilização do método abaixo?
 	private void validateOnSave(Planet entity) throws ValidationException {
-		if (Util.getInstance().isNotEmpty(entity.getName())) {
+		if (Util.getInstance().isEmpty(entity.getName())) {
 			throw new ValidationException("Nome é obrigatório");
 		}
-		if (Util.getInstance().isNotEmpty(entity.getTerrain())) {
+		if (Util.getInstance().isEmpty(entity.getTerrain())) {
 			throw new ValidationException("Terreno é obrigatório");
 		}
-		if (Util.getInstance().isNotEmpty(entity.getClimate())) {
+		if (Util.getInstance().isEmpty(entity.getClimate())) {
 			throw new ValidationException("Clima é obrigatório");
 		}
 	}
