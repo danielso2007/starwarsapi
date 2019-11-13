@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/danielso2007/starwarsapi/compare/v1.2.0...v1.3.0) (2019-11-13)
+
+
+### Features
+
+* Adicionando o mapeamento nas classes do framework. ([564e650](https://github.com/danielso2007/starwarsapi/commit/564e6500ca695837ecd4d58cd60d43a19b559cbd))
+* Atualizações e melhorias do framework após estudos e testes. ([d9cdf45](https://github.com/danielso2007/starwarsapi/commit/d9cdf45256939cbab8148d185f8f3143954c2814))
+* **Testes:** Primeiros testes no serviço de Planet. ([403aa78](https://github.com/danielso2007/starwarsapi/commit/403aa783f3429ff770480f32db4ac868373c8deb))
+
 ## [1.2.0](https://github.com/danielso2007/starwarsapi/compare/v1.1.0...v1.2.0) (2019-11-12)
 
 
