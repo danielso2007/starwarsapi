@@ -1,0 +1,104 @@
+{
+	"variables": [],
+	"info": {
+		"name": "StarwarsApi",
+		"_postman_id": "ea2a7b00-8e04-4b0b-8f9b-e9e6c9e2b81d",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api/planets",
+			"request": {
+				"url": "http://localhost:8080/api/planets",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "api/planets/ID",
+			"request": {
+				"url": "http://localhost:8080/api/planets/5dc63373c00e81ef18c15572",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "api/planets Novo Planeta",
+			"request": {
+				"url": "http://localhost:8080/api/planets",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Planeta Teste 2\",\n    \"climate\": [\n        \"temperate\"\n    ],\n    \"terrain\": [\n        \"gas giant\",\n        \"ace\"\n    ],\n    \"films\": 0\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "api/planets Delete",
+			"request": {
+				"url": "http://localhost:8080/api/planets/5dca20693b5c554207b7c856",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "api/planets/ID Update Planet",
+			"request": {
+				"url": "http://localhost:8080/api/planets/5dc63373c00e81ef18c155a1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Sullust 2\",\n    \"films\": 0\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "api/planets/search",
+			"request": {
+				"url": "http://localhost:8080/api/planets/search/1/5",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Cor\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
