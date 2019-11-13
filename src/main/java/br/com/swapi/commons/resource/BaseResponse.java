@@ -81,8 +81,8 @@ public abstract class BaseResponse<T extends BaseTypeDTO> {
 	 * @param list O dado que sera enviado no {@link ResponseEntity}.
 	 * @return {@link ResponseEntity}
 	 */
-	protected final ResponseEntity<Response<Iterable<T>>> ok(Iterable<T> list) {
-		return ResponseEntity.ok(Response.<Iterable<T>>builder().data(list).build());
+	protected final ResponseEntity<Response<List<T>>> ok(List<T> list) {
+		return ResponseEntity.ok(Response.<List<T>>builder().data(list).build());
 	}
 
 	/**

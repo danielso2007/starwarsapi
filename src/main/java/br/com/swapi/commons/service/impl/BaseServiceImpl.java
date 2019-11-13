@@ -43,6 +43,7 @@ public abstract class BaseServiceImpl<E extends BaseEntity, P extends BaseSearch
 
     public static final String NAO_EXISTE_REGISTRO_COM_O_ID_INFORMADO = "Não existe registro com o ID informado.";
     public static final String ID_NAO_INFORMADO = "Id não informado.";
+    public static final String FILTRO_NAO_INFORMADO = "Filtro de pesquisa nao informado.";
     public static final String ENTIDADE_NAO_INFORMADA = "Entidade não informada.";
     public static final String ENTIDADE_NAO_ENCONTRADA = "Entidade não encontrada.";
 
@@ -113,6 +114,9 @@ public abstract class BaseServiceImpl<E extends BaseEntity, P extends BaseSearch
 
     @Override
     public T save(T dto) throws ServiceException, ValidationException {
+        if (dto == null) {
+            return null;
+        }
 		E entity = map(dto);
 		doBeforeSave(entity, dto);
 		dto = map(save(entity));
@@ -199,7 +203,7 @@ public abstract class BaseServiceImpl<E extends BaseEntity, P extends BaseSearch
     }
 
     @Override
-    public Iterable<T> getAll() {
+    public List<T> getAll() {
         return map(this.repository.findAll());
     }
 
@@ -210,8 +214,12 @@ public abstract class BaseServiceImpl<E extends BaseEntity, P extends BaseSearch
     protected void createPredicated(BooleanBuilder booleanBuilder, P filter) {
     }
 
+    // TODO: Permitir a inclusão de ordenação no parâmetro do metodo.
     @Override
     public Page<T> search(int page, int count, P filter) throws ServiceException {
+        if (filter == null) {
+            throw new ServiceException(FILTRO_NAO_INFORMADO);
+        }
         page = page - 1;
         try {
             Pageable pageable = createPageableSearch(page, count);

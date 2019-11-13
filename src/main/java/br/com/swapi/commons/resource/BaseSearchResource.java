@@ -1,6 +1,7 @@
 package br.com.swapi.commons.resource;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -58,11 +59,11 @@ public abstract class BaseSearchResource<E extends BaseEntity, P extends BaseSea
             @ApiResponse(code = 403, message = "É proibido acessar o recurso"),
             @ApiResponse(code = 404, message = "O recurso que você estava tentando acessar não foi encontrado"),
             @ApiResponse(code = 500, message = "Erro interno do servidor")})
-    public ResponseEntity<Response<Iterable<T>>> all() {
+    public ResponseEntity<Response<List<T>>> all() {
         try {
             return ok(getService().getAll());
         } catch (Exception e) {
-            return (ResponseEntity<Response<Iterable<T>>>) genericError(e);
+            return (ResponseEntity<Response<List<T>>>) genericError(e);
         }
     }
 
@@ -80,6 +81,7 @@ public abstract class BaseSearchResource<E extends BaseEntity, P extends BaseSea
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Registros listados com sucesso"),
             @ApiResponse(code = 400, message = "Erro na obtenção dos dados")})
+    // TODO: Permitir a inclusão de ordenação no parâmetro do metodo vindo da chamada.
     public ResponseEntity<Page<T>> search(
                                           @ApiParam("A página pesquisada. Maior que zero e não pode ser vazio.") @PathVariable("page") int page,
                                           @ApiParam("A quantidade de registros por página. Não pode ser vazio.") @PathVariable("size") int size,

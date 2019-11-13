@@ -101,7 +101,7 @@ public interface BaseService<E extends BaseEntity, P extends BaseSearchTypeDTO, 
 	 * Obter todos os registros da base de dados.
 	 * @return A lista de registros da base de dados.
 	 */
-	Iterable<T> getAll();
+	List<T> getAll();
 
 	/**
 	 * Pesquisar por registros na base de dados.

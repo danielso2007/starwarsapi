@@ -279,7 +279,7 @@
                     <parallel>classes</parallel>
                     <perCoreThreadCount>true</perCoreThreadCount>
                     <useUnlimitedThreads>false</useUnlimitedThreads>
-                    <argLine>-Xmx1024m -XX:MaxPermSize=1024m</argLine>
+                    <argLine>-Xmx1024m</argLine>
                     <includes>
                         <include>${test.suites}</include>
                     </includes>
