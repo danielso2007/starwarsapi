@@ -282,7 +282,8 @@ public abstract class BaseServiceImpl<E extends BaseEntity, P extends BaseSearch
     }
 
     // TODO: Melhorar as consultas com QueryDSL.
-    protected final MorphiaQuery<E> select() {
+    @Override
+    public final MorphiaQuery<E> select() {
         MongoClient client = new MongoClient(mongoHost, Integer.parseInt(mongoPort));
         // Morphia não consegue pegar o ID na herança de classes
         Morphia morphia = new Morphia().map(this.entityClass);
@@ -290,15 +291,18 @@ public abstract class BaseServiceImpl<E extends BaseEntity, P extends BaseSearch
         return new MorphiaQuery<>(morphia, ds, entityPath);
     }
 
-    protected final T map(E entity) {
+    @Override
+    public final T map(E entity) {
         return modelMapper.map(entity, transferObjectClass);
     }
 
-    protected final E map(T dto) {
+    @Override
+    public final E map(T dto) {
         return modelMapper.map(dto, entityClass);
     }
 
-    private List<T> map(Iterator<E> iterator) {
+    @Override
+    public List<T> map(Iterator<E> iterator) {
         List<T> result = new ArrayList<T>();
         while (iterator.hasNext()) {
             result.add(map(iterator.next()));
@@ -306,7 +310,8 @@ public abstract class BaseServiceImpl<E extends BaseEntity, P extends BaseSearch
         return result;
     }
 
-    private List<T> map(List<E> list) {
+    @Override
+    public List<T> map(List<E> list) {
         return list.stream().map(e -> map(e)).collect(Collectors.toList());
     }
 

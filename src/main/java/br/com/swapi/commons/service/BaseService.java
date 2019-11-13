@@ -1,10 +1,13 @@
 package br.com.swapi.commons.service;
 
 import java.io.Serializable;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.validation.ValidationException;
 
 import br.com.swapi.commons.type.BaseTypeDTO;
+import com.querydsl.mongodb.morphia.MorphiaQuery;
 import org.springframework.data.domain.Page;
 
 import com.querydsl.core.types.EntityPath;
@@ -126,5 +129,15 @@ public interface BaseService<E extends BaseEntity, P extends BaseSearchTypeDTO, 
 	 * @return O tipo de classe da entidade.
 	 */
 	Class<E> getEntityClass();
+
+	MorphiaQuery<E> select();
+
+	T map(E entity);
+
+	E map(T dto);
+
+	List<T> map(Iterator<E> iterator);
+
+	List<T> map(List<E> list);
 
 }
