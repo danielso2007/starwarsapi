@@ -8,10 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@latest
-    - uses: joschi/setup-jdk@v1
-        with:
-          java-version: 'openjdk11' // The OpenJDK version to make available on the path
-          architecture: 'x64' // defaults to 'x64'
+    - uses: actions/checkout@master
+    - name: Setup java
+      uses: joschi/setup-jdk@v1
+      with:
+        java-version: 'openjdk11'
+        architecture: 'x64'
     - name: Build with Maven and test
-      run: mvn clean package test -P test
+        run: mvn clean package test -P test
