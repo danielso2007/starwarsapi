@@ -33,15 +33,10 @@ import static org.mockito.Mockito.*;
 public class PlanetServiceImplTest {
 
     public static final String ENTIDADE_COM_ID_S_NAO_ENCONTRADA = "Entidade com ID %s não encontrada";
-    private String ID = "5dc4c9734e9b1214ed7a9e8a";
-    private String NAME = "planet";
-    private String TUNDRA = "tundra";
-    private String TROPICAL = "tropical";
-    private String MOUNTAINS = "mountains";
-    private String TEMPERATE = "temperate";
+    private final String ID = "5dc4c9734e9b1214ed7a9e8a";
+    private final String NAME = "planet";
     private Planet ENTITY;
     private List<Object> TERRAINS;
-    private List<Object> CLIMATES;
 
     @MockBean
     private PlanetRepository planetRepository;
@@ -51,12 +46,16 @@ public class PlanetServiceImplTest {
 
     @Before
     public void setUp() {
-        TERRAINS = new ArrayList();
+        TERRAINS = new ArrayList<>();
+        String TUNDRA = "tundra";
         TERRAINS.add(TUNDRA);
+        String MOUNTAINS = "mountains";
         TERRAINS.add(MOUNTAINS);
 
-        CLIMATES = new ArrayList();
+        List<Object> CLIMATES = new ArrayList<>();
+        String TROPICAL = "tropical";
         CLIMATES.add(TROPICAL);
+        String TEMPERATE = "temperate";
         CLIMATES.add(TEMPERATE);
 
         ENTITY = Planet
@@ -77,7 +76,7 @@ public class PlanetServiceImplTest {
         when(planetRepository.save(ENTITY)).thenReturn(ENTITY);
         when(planetRepository.findAll()).thenReturn(list);
 
-        Page<Planet> foundPage = new PageImpl(list);
+        Page<Planet> foundPage = new PageImpl<>(list);
         when(planetRepository.findAll(any(BooleanBuilder.class), any(PageRequest.class))).thenReturn(foundPage);
     }
 

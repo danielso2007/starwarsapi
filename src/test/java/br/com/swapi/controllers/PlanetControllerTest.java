@@ -20,7 +20,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -29,6 +28,7 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -38,13 +38,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
+@SuppressWarnings("unchecked")
 @SpringBootTest
 @AutoConfigureMockMvc
 @RunWith(SpringRunner.class)
 public class PlanetControllerTest {
 
     public static final String API_PLANETS = "/api/planets";
-    private String ID = "5dc4c9734e9b1214ed7a9e8a";
+    private final String ID = "5dc4c9734e9b1214ed7a9e8a";
 
     @Autowired
     private MockMvc mockMvc;
@@ -81,8 +82,8 @@ public class PlanetControllerTest {
     }
 
     // TODO: Criar no framework para outros testes utilizarem.
-    private MockHttpServletResponse deleteHttpServletResponse(String url, String json, ResultMatcher status) throws Exception {
-        return httpServletResponse(HttpMethod.DELETE, url, json, status);
+    private MockHttpServletResponse deleteHttpServletResponse(String url, ResultMatcher status) throws Exception {
+        return httpServletResponse(HttpMethod.DELETE, url, null, status);
     }
 
     // TODO: Criar no framework para outros testes utilizarem.
@@ -105,21 +106,20 @@ public class PlanetControllerTest {
         }
 
         if (json != null) {
-            requestBuilder.content(json);
+            Objects.requireNonNull(requestBuilder).content(json);
         }
 
-        MockHttpServletResponse mockHttpServletResponse = mockMvc
-                .perform(requestBuilder)
+        return mockMvc
+                .perform(Objects.requireNonNull(requestBuilder))
                 .andDo(print())
                 .andExpect(status)
                 .andReturn()
                 .getResponse();
-        return mockHttpServletResponse;
     }
 
     @Test
     public void testGetAllPlanets() throws Exception {
-        List<PlanetDTO> list = new ArrayList();
+        List<PlanetDTO> list = new ArrayList<>();
         list.add(PlanetDTO.builder().name("Planet1").build());
         list.add(PlanetDTO.builder().name("Planet2").build());
 
@@ -135,13 +135,14 @@ public class PlanetControllerTest {
                 jsonResponse.write(response).getJson());
     }
 
+    @SuppressWarnings("unchecked")
     @Test
     public void testSearchPlanets() throws Exception {
-        List<PlanetDTO> list = new ArrayList();
+        List<PlanetDTO> list = new ArrayList<>();
         list.add(PlanetDTO.builder().name("Planet1").build());
         list.add(PlanetDTO.builder().name("Planet2").build());
 
-        Page<PlanetDTO> foundPage = new PageImpl(list, PageRequest.of(1, 5), 1);
+        Page<PlanetDTO> foundPage = new PageImpl<>(list, PageRequest.of(1, 5), 1);
 
         when(planetService.search(
                 any(Integer.class),
@@ -352,27 +353,9 @@ public class PlanetControllerTest {
 
     @Test
     public void testDeletandoPlanet() throws Exception {
-        PlanetDTO planetDTOResponse = PlanetDTO
-                .builder()
-                .name("Planet teste")
-                .build();
-
-        PlanetDTO planetDTORequest = PlanetDTO
-                .builder()
-                .id(ID)
-                .name("Planet teste")
-                .terrain(new ArrayList<Object>() {{
-                    add("tundra");
-                }})
-                .climate(new ArrayList<Object>() {{
-                    add("tropical");
-                }})
-                .films(3)
-                .build();
-
         deleteHttpServletResponse(
                 String.format("%s/%s", API_PLANETS, ID),
-                null,
                 status().isOk());
+
     }
 }
