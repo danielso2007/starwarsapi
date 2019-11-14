@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/danielso2007/starwarsapi/compare/v1.3.0...v1.4.0) (2019-11-14)
+
+
+### Features
+
+* Ajustes e melhoramento no framework após análises de testes. ([c1e1c95](https://github.com/danielso2007/starwarsapi/commit/c1e1c95b92264519e13c30153e3a7297e0559a31))
+* Trocando para Java 11. ([82becf2](https://github.com/danielso2007/starwarsapi/commit/82becf2be204440b288ab262ec3dad114d32c155))
+
+
+### Bug Fixes
+
+* Atualizando os produces e consumes dos entpoints para application/json;charset=utf-8; ([c31c687](https://github.com/danielso2007/starwarsapi/commit/c31c68745370cc3ca332e0283c683bfd754f7c06))
+
 ## [1.3.0](https://github.com/danielso2007/starwarsapi/compare/v1.2.0...v1.3.0) (2019-11-13)
 
 
