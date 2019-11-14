@@ -7,6 +7,7 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/danielso2007/starwarsapi.svg)
 [![GitHub](https://img.shields.io/github/license/danielso2007/starwarsapi.svg)](https://github.com/danielso2007/starwarsapi)
 [![GitHub All Releases](https://img.shields.io/github/downloads/danielso2007/starwarsapi/total.svg)](https://github.com/danielso2007/starwarsapi/archive/master.zip) -->
+[![Build Status](https://travis-ci.com/danielso2007/starwarsapi.svg?token=cNenT4ixErxehcz1sgqf&branch=master)](https://travis-ci.com/danielso2007/starwarsapi)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 
