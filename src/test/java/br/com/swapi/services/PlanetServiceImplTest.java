@@ -32,6 +32,7 @@ import static org.mockito.Mockito.*;
 @RunWith(SpringRunner.class)
 public class PlanetServiceImplTest {
 
+    public static final String ENTIDADE_COM_ID_S_NAO_ENCONTRADA = "Entidade com ID %s não encontrada";
     private String ID = "5dc4c9734e9b1214ed7a9e8a";
     private String NAME = "planet";
     private String TUNDRA = "tundra";
@@ -91,25 +92,25 @@ public class PlanetServiceImplTest {
     }
 
     @Test
-    public void contexLoads() {
+    public void testContexLoads() {
         Assert.assertNotNull(planetService);
         Assert.assertNotNull(planetRepository);
     }
 
     @Test
-    public void quandoIdValidoEhPlanetDTOEncontrado() {
+    public void testQuandoIdValidoEhPlanetDTOEncontrado() {
         PlanetDTO found = planetService.getById(ID);
         assertEquals(found.getId(), ID);
     }
 
     @Test
-    public void quandoIdValidoEhPlanetEncontrado() {
+    public void testQuandoIdValidoEhPlanetEncontrado() {
         Planet found = planetService.findById(ID);
         assertEquals(found.getId(), ID);
     }
 
     @Test
-    public void quandoIdInvalidoEhPlanetNaoEncontrado() {
+    public void testQuandoIdInvalidoEhPlanetNaoEncontrado() {
         try {
             planetService.findById(String.format("%s%s", ID, "QW23"));
         } catch (EntityNotFoundException e) {
@@ -118,7 +119,7 @@ public class PlanetServiceImplTest {
     }
 
     @Test
-    public void quandoIdNuloEhPlanetNaoEncontrado() {
+    public void testQuandoIdNuloEhPlanetNaoEncontrado() {
         try {
             planetService.findById(null);
         } catch (ValidationException e) {
@@ -127,20 +128,20 @@ public class PlanetServiceImplTest {
     }
 
     @Test
-    public void quandoSalvandoEhPlanetRetornado() {
+    public void testQuandoSalvandoEhPlanetRetornado() {
         Planet found = planetService.save(ENTITY);
         assertEquals(found.getId(), ID);
         assertEquals(found.getName(), ENTITY.getName());
     }
 
     @Test
-    public void quandoSalvandoNuloEhPlanetNull() {
+    public void testQuandoSalvandoNuloEhPlanetNull() {
         Planet found = planetService.save((Planet) null);
         assertNull(found);
     }
 
     @Test
-    public void quandoSalvandoCamposObrigatoriosDePlanet() {
+    public void testQuandoSalvandoCamposObrigatoriosDePlanet() {
         Planet entity = ENTITY;
         entity.setName(null);
         try {
@@ -177,7 +178,7 @@ public class PlanetServiceImplTest {
     }
 
     @Test
-    public void quandoMapeandoDTO() {
+    public void testQuandoMapeandoDTO() {
         PlanetDTO foundDTO = planetService.map(ENTITY);
         assertEquals(foundDTO.getId(), ENTITY.getId());
         assertEquals(foundDTO.getTerrain(), ENTITY.getTerrain());
@@ -186,13 +187,13 @@ public class PlanetServiceImplTest {
     }
 
     @Test
-    public void quandoSalvandoDTONuloEhPlanetNull() {
+    public void testQuandoSalvandoDTONuloEhPlanetNull() {
         PlanetDTO foundDTO = planetService.save((PlanetDTO) null);
         assertNull(foundDTO);
     }
 
     @Test
-    public void quandoAtualizandoEhPlanetEncontrado() {
+    public void testQuandoAtualizandoEhPlanetEncontrado() {
         String name = "Planet3";
         ENTITY.setName(name);
         Planet found = planetService.update(ENTITY, ID);
@@ -201,43 +202,43 @@ public class PlanetServiceImplTest {
     }
 
     @Test
-    public void quandoAtualizandoNuloEhPlanetNulo() {
+    public void testQuandoAtualizandoNuloEhPlanetNulo() {
         Planet found = planetService.update((Planet) null, ID);
         assertNull(found);
     }
 
     @Test
-    public void quandoAtualizandoNuloIdNuloEhPlanetNulo() {
+    public void testQuandoAtualizandoNuloIdNuloEhPlanetNulo() {
         Planet found = planetService.update((Planet) null, null);
         assertNull(found);
     }
 
     @Test
-    public void quandoAtualizandoIdNaoExistenteEhPlanetNaoEncontrado() {
+    public void testQuandoAtualizandoIdNaoExistenteEhPlanetNaoEncontrado() {
         String id = "5dc4c973ET651214ed7a9e8a";
         try {
             planetService.update(ENTITY, id);
         } catch (EntityNotFoundException e) {
-            entityNotFoundExceptionError(e, String.format("Entidade com ID %s não encontrada", id));
+            entityNotFoundExceptionError(e, String.format(ENTIDADE_COM_ID_S_NAO_ENCONTRADA, id));
         }
     }
 
     @Test
-    public void quandoAtualizandoIdNuloEhPlanetNulo() {
+    public void testQuandoAtualizandoIdNuloEhPlanetNulo() {
         try {
             planetService.update(ENTITY, null);
         } catch (EntityNotFoundException e) {
-            entityNotFoundExceptionError(e, String.format("Entidade com ID %s não encontrada", (Object) null));
+            entityNotFoundExceptionError(e, String.format(ENTIDADE_COM_ID_S_NAO_ENCONTRADA, (Object) null));
         }
     }
 
     @Test
-    public void quandoDeletandoUmPlanet() {
+    public void testQuandoDeletandoUmPlanet() {
         planetService.delete(ID);
     }
 
     @Test
-    public void quandoDeletandoUmPlanetEhIdNulo() {
+    public void testQuandoDeletandoUmPlanetEhIdNulo() {
         try {
             planetService.delete(null);
         } catch (ServiceException e) {
@@ -246,14 +247,14 @@ public class PlanetServiceImplTest {
     }
 
     @Test
-    public void quandoObterTodosOsRegistrosPlanet() {
+    public void testQuandoObterTodosOsRegistrosPlanet() {
         List<PlanetDTO> list = planetService.getAll();
         assertNotNull(list);
         assertEquals(list.size(), 1);
     }
 
     @Test
-    public void quandoPesquisandoOsRegistrosPlanet() {
+    public void testQuandoPesquisandoOsRegistrosPlanet() {
         PlanetSearchDTO planetSearchDTO = PlanetSearchDTO
                 .builder()
                 .name(NAME)
@@ -264,7 +265,51 @@ public class PlanetServiceImplTest {
     }
 
     @Test
-    public void quandoPesquisandoComFiltroNulo() {
+    public void testQuandoPesquisandoEhPageZero() {
+        PlanetSearchDTO planetSearchDTO = PlanetSearchDTO
+                .builder()
+                .name(NAME)
+                .build();
+        Page<PlanetDTO> page = planetService.search(0, 2, planetSearchDTO);
+        assertNotNull(page);
+        assertEquals(page.getContent().size(), 1);
+    }
+
+    @Test
+    public void testQuandoPesquisandoEhPageNegativo() {
+        PlanetSearchDTO planetSearchDTO = PlanetSearchDTO
+                .builder()
+                .name(NAME)
+                .build();
+        Page<PlanetDTO> page = planetService.search(-1, 2, planetSearchDTO);
+        assertNotNull(page);
+        assertEquals(page.getContent().size(), 1);
+    }
+
+    @Test
+    public void testQuandoPesquisandoEhCountZero() {
+        PlanetSearchDTO planetSearchDTO = PlanetSearchDTO
+                .builder()
+                .name(NAME)
+                .build();
+        Page<PlanetDTO> page = planetService.search(1, 0, planetSearchDTO);
+        assertNotNull(page);
+        assertEquals(page.getContent().size(), 1);
+    }
+
+    @Test
+    public void testQuandoPesquisandoEhCountNegativo() {
+        PlanetSearchDTO planetSearchDTO = PlanetSearchDTO
+                .builder()
+                .name(NAME)
+                .build();
+        Page<PlanetDTO> page = planetService.search(1, -1, planetSearchDTO);
+        assertNotNull(page);
+        assertEquals(page.getContent().size(), 1);
+    }
+
+    @Test
+    public void testQuandoPesquisandoComFiltroNulo() {
         try {
             planetService.search(1, 2, null);
         } catch (ServiceException e) {
