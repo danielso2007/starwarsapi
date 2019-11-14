@@ -3,13 +3,10 @@ package br.com.swapi.commons.response;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 /**
  * Representa o retorno dos recursos.
@@ -19,8 +16,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode(of = {"data", "errors", "validation"})
 @ToString(of = { "data" })
 @ApiModel(description = "Modelo de retorno da API")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Response<T> {
 
 	@ApiModelProperty(notes = "Os dados do retorno", example = "Não há exemplos")

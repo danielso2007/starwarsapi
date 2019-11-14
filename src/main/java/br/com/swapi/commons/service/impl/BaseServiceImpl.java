@@ -220,7 +220,14 @@ public abstract class BaseServiceImpl<E extends BaseEntity, P extends BaseSearch
         if (filter == null) {
             throw new ServiceException(FILTRO_NAO_INFORMADO);
         }
-        page = page - 1;
+        if (page > 0) {
+            page = page - 1;
+        } else {
+            page = 0;
+        }
+        if (count <= 0) {
+            count = 1;
+        }
         try {
             Pageable pageable = createPageableSearch(page, count);
             BooleanBuilder booleanBuilder = new BooleanBuilder();
