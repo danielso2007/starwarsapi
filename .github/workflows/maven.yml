@@ -15,4 +15,4 @@ jobs:
         java-version: 'openjdk11'
         architecture: 'x64'
     - name: Build with Maven and test
-        run: mvn clean package test -P test
+      run: mvn clean package test -P test
