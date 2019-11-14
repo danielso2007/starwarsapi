@@ -1,10 +1,11 @@
 package br.com.swapi.commons.resource;
 
-import java.io.Serializable;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
+import br.com.swapi.commons.BaseRepository;
+import br.com.swapi.commons.Constants;
+import br.com.swapi.commons.entity.BaseEntity;
+import br.com.swapi.commons.response.Response;
+import br.com.swapi.commons.service.BaseService;
+import br.com.swapi.commons.type.BaseSearchTypeDTO;
 import br.com.swapi.commons.type.BaseTypeDTO;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -15,16 +16,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.querydsl.core.types.EntityPath;
-import com.querydsl.core.types.dsl.PathBuilder;
-
-import br.com.swapi.commons.BaseRepository;
-import br.com.swapi.commons.GenericsUtils;
-import br.com.swapi.commons.Util;
-import br.com.swapi.commons.entity.BaseEntity;
-import br.com.swapi.commons.response.Response;
-import br.com.swapi.commons.service.BaseService;
-import br.com.swapi.commons.type.BaseSearchTypeDTO;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * Recurso básico com endpoints de pesquisa.
@@ -49,7 +42,7 @@ public abstract class BaseSearchResource<E extends BaseEntity, P extends BaseSea
      * @return Os registros da base de dados.
      */
     @SuppressWarnings("unchecked")
-    @GetMapping(produces = "application/json")
+    @GetMapping(produces = Constants.APPLICATION_JSON_UTF_8)
     @ApiOperation(value = "Obter todos os registros", notes = "Cuidado, pois esta consulta pode ser custosa para a aplicação.")
     @ResponseStatus(HttpStatus.OK)
     @ApiResponses(value = {
@@ -75,7 +68,7 @@ public abstract class BaseSearchResource<E extends BaseEntity, P extends BaseSea
      * @return A lista de registros filtrada na base de dados.
      */
     @SuppressWarnings("unchecked")
-    @PostMapping(value = "/search/{page}/{size}", produces = "application/json", consumes = "application/json")
+    @PostMapping(value = "/search/{page}/{size}", produces = Constants.APPLICATION_JSON_UTF_8, consumes = Constants.APPLICATION_JSON_UTF_8)
     @ApiOperation(value = "Pesquisa paginada de registros através de filtro.", notes = "Para este recurso, deve ser informada a página e a quantidades de registros por páginas.  ")
     @ResponseStatus(HttpStatus.OK)
     @ApiResponses(value = {

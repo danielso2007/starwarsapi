@@ -8,6 +8,9 @@ public interface Constants {
     String DATE_FORMAT_SQL = "yyyy-MM-dd";
     String DATE_FORMAT_SQL_TIMESTAMP = "yyyy-MM-dd HH:mm:ss";
 
+    String APPLICATION_JSON_UTF_8 = "application/json;charset=utf-8";
+    String APPLICATION_XML_UTF_8 = "application/xml;charset=utf-8";
+
     String UTF_8 = "UTF-8";
     String ISO_8859_1 = "ISO-8859-1";
     String BLANK = "";

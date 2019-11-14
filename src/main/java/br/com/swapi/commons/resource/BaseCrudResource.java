@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.validation.Valid;
 
+import br.com.swapi.commons.Constants;
 import br.com.swapi.commons.type.BaseTypeDTO;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -42,7 +43,7 @@ public abstract class BaseCrudResource<E extends BaseEntity, P extends BaseSearc
 	 * @return Um registro da base de dados.
 	 */
 	@SuppressWarnings("unchecked")
-	@GetMapping(value = "/{id}", produces = {"application/json", "application/xml"})
+	@GetMapping(value = "/{id}", produces = {Constants.APPLICATION_JSON_UTF_8, Constants.APPLICATION_XML_UTF_8})
 	@ApiOperation(value = "Obter registro pelo identificador", notes = "Será retornado um registro da base de dados.")
 	@ResponseStatus(HttpStatus.OK)
 	@ApiResponses(value = {
@@ -65,7 +66,7 @@ public abstract class BaseCrudResource<E extends BaseEntity, P extends BaseSearc
 	 * @return O registro cadastrado na base de dados.
 	 */
 	@SuppressWarnings("unchecked")
-	@PostMapping(produces = "application/json", consumes = "application/json")
+	@PostMapping(produces = Constants.APPLICATION_JSON_UTF_8, consumes = Constants.APPLICATION_JSON_UTF_8)
 	@ApiOperation(value = "Salvar um novo registro", notes = "Cria um novo registro na base de dados.")
 	@ResponseStatus(HttpStatus.CREATED)
 	@ApiResponses(value = {
@@ -91,7 +92,7 @@ public abstract class BaseCrudResource<E extends BaseEntity, P extends BaseSearc
 	 * @return O registro atualizado.
 	 */
 	@SuppressWarnings("unchecked")
-	@PutMapping(value = "/{id}", produces = "application/json", consumes = "application/json")
+	@PutMapping(value = "/{id}", produces = Constants.APPLICATION_JSON_UTF_8, consumes = Constants.APPLICATION_JSON_UTF_8)
 	@ApiOperation(value = "Atualizar um registro", notes = "Atualiza um registro na base de dados.")
 	@ResponseStatus(HttpStatus.OK)
 	@ApiResponses(value = {
