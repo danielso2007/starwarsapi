@@ -9,12 +9,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - run: curl -O "https://download.java.net/java/GA/jdk12/33/GPL/openjdk-11_windows-x64_bin.zip"
-    - name: Set Java
-      uses: actions/setup-java@master
+    - name: Set Java 11
+      uses: joschi/setup-jdk@v1
       with:
-        java-version: 11
-        architecture: x64
-        jdkFile: ./openjdk-11_windows-x64_bin.zip
+        java-version: 'openjdk11' // The OpenJDK version to make available on the path
+        architecture: 'x64' // defaults to 'x64'
     - name: Build with Maven and test
       run: mvn clean package test -P test
