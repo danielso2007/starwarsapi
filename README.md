@@ -1,4 +1,4 @@
-![GitHub package version](https://img.shields.io/github/package-json/v/danielso2007/starwarsapi.svg)
+<!-- ![GitHub package version](https://img.shields.io/github/package-json/v/danielso2007/starwarsapi.svg)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/danielso2007/starwarsapi.svg)](https://github.com/danielso2007/starwarsapi/pulls)
 [![GitHub issues](https://img.shields.io/github/issues/danielso2007/starwarsapi.svg)](https://github.com/danielso2007/starwarsapi/issues?q=is%3Aopen+is%3Aissue)
 ![GitHub last commit](https://img.shields.io/github/last-commit/danielso2007/starwarsapi.svg)
@@ -6,7 +6,7 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/danielso2007/starwarsapi.svg)
 ![GitHub top language](https://img.shields.io/github/languages/top/danielso2007/starwarsapi.svg)
 [![GitHub](https://img.shields.io/github/license/danielso2007/starwarsapi.svg)](https://github.com/danielso2007/starwarsapi)
-[![GitHub All Releases](https://img.shields.io/github/downloads/danielso2007/starwarsapi/total.svg)](https://github.com/danielso2007/starwarsapi/archive/master.zip)
+[![GitHub All Releases](https://img.shields.io/github/downloads/danielso2007/starwarsapi/total.svg)](https://github.com/danielso2007/starwarsapi/archive/master.zip) -->
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 
@@ -36,7 +36,7 @@ Recomendado instalar o [sdkman](https://sdkman.io/) que é uma ferramenta para g
 
 Com o sdkman, instale o java:
 ```
-sdk install java 8u111
+sdk install java 11.0.5-zulu
 ```
 
 Instalando o Maven:
