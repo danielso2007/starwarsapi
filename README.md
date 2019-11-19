@@ -80,6 +80,14 @@ Para encerrar o projeto, execute:
 ./stop.sh
 ```
 
+## Test
+
+O projeto está configurado para não executar os testes quando construído para desenvolvimento. Para executar os testes, execute o comando abaixo:
+
+`mvn clean test -P test`
+
+Os testes são executados normalmente quando projeto construído para **produção**. Há no arquivo do `pom.xml` essa configuração, que pode ser modificada a qualquer momento do desenvolvimento. Inicialmente, para o desenvolvimento, o desenvolvedor pode executar seus testes ao seguir o padrão TDD pelo próprio IDE.
+
 ## Deployment
 
 Nada será necessário, o projeto é executado como Fat jar.
