@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/danielso2007/starwarsapi/compare/v1.4.0...v1.5.0) (2019-11-21)
+
+
+### Features
+
+* Criar docker-compose ([#8](https://github.com/danielso2007/starwarsapi/issues/8)). ([a4d1dd0](https://github.com/danielso2007/starwarsapi/commit/a4d1dd0fc0f65dbe12722de413e1b06ac7f184d3))
+* Dockerizada o projeto, criando a imagem da API ([#7](https://github.com/danielso2007/starwarsapi/issues/7)). ([782914a](https://github.com/danielso2007/starwarsapi/commit/782914aab69db1273d92fad7f9ce7b43127b474a))
+
+
+### Bug Fixes
+
+* Ajustes de dependências após mudanças para Java 11. ([3e875b9](https://github.com/danielso2007/starwarsapi/commit/3e875b9fdebc117f1578151f36683c932e02dc52))
+* Correção do basePackage do swagger após mudanças no package de resources. ([8e894aa](https://github.com/danielso2007/starwarsapi/commit/8e894aaecab68d008b7645e60820d73ef49985fe))
+
 ## [1.4.0](https://github.com/danielso2007/starwarsapi/compare/v1.3.0...v1.4.0) (2019-11-14)
 
 
