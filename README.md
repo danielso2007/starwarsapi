@@ -63,6 +63,24 @@ http://localhost:8080/swagger-ui.html#/
 
 Inicialmente só é criada a imagem da api. Posteriormente mostrarei como executar o `docker-compose` criado no build, para a execução completa da api com o banco de dados MongoDb.
 
+## Running with docker-compose
+
+Ao executar o maven `mvn clean package -P docker`, é gerado o `Dockerfile` e também o `docker-compose.yml`. Com o docker-compose é possível inicar a aplicação já com um container docker com Mongo. Inicialmente esse banco está vazio.
+
+Execute esse comando dentro da pasta `target`:
+```
+docker-compose up -d
+```
+
+Será iniciado os containers da api e do mongo. Acessando o endereço `http://localhost:8080/api/planets`, será retornado uma lista vazia.
+
+Para parar os containers, execute:
+```
+docker-compose stop
+```
+
+Pelo `pom.xml` é possível configurar a criação do arquivo `docker-compose`. Inicialmente a porta do container mongo a porta está exposta, mas é só modificar o arquivo `docker-compose` e remover, pois a comunicação entre a api e o banco é via `network` interno entre os containers.
+
 ## Running (No docker)
 
 Dentro da pasta do projeto, execute:

@@ -38,6 +38,9 @@
         <mongodb.database>starwarsdb</mongodb.database>
         <mongodb.username>root</mongodb.username>
         <mongodb.password>112358</mongodb.password>
+
+        <docker.networks>apidb</docker.networks>
+        <docker.data.base.name>mongodb</docker.data.base.name>
     </properties>
 
     <repositories>
@@ -336,6 +339,9 @@
     <profiles>
         <profile>
             <id>docker</id>
+            <properties>
+                <mongodb.host>${docker.data.base.name}</mongodb.host>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
@@ -402,7 +408,7 @@
                 <debug.properties>false</debug.properties>
                 <trace.properties>false</trace.properties>
                 <spring.profiles.active>prod</spring.profiles.active>
-                <mongodb.host>db</mongodb.host>
+                <mongodb.host>localhost</mongodb.host>
                 <mongodb.port>27017</mongodb.port>
                 <mongodb.database>starwarsdb</mongodb.database>
                 <mongodb.username>root</mongodb.username>
