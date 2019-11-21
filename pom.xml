@@ -224,6 +224,19 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Dependencias adicionadas devido ao Java 11 -->
+        <dependency>
+            <groupId>org.jboss.xnio</groupId>
+            <artifactId>xnio-nio</artifactId>
+            <version>3.7.7.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.threads</groupId>
+            <artifactId>jboss-threads</artifactId>
+            <version>3.0.0.Final</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
