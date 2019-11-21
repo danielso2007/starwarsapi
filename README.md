@@ -45,7 +45,25 @@ Instalando o Maven:
 sdk install maven
 ```
 
-## Running
+## Running with docker
+
+Há um perfil no `pom.xml` para a criação da imagem do projeto. Ao executar `mvn clean package -P docker`, será realizado o teste e criado o arquivo `Dockerfile` na pasta `target`, criando a imagem `starwarsapi:<project.version>`.
+Para ver a imagem criada, digite no terminal o comando `docker images`.
+
+ Para "rodar" a imagem, execute:
+```
+docker run -p 8080:8080 --name swapi  starwarsapi:<project.version>
+```
+
+Teste o endereço:
+
+```
+http://localhost:8080/swagger-ui.html#/
+```
+
+Inicialmente só é criada a imagem da api. Posteriormente mostrarei como executar o `docker-compose` criado no build, para a execução completa da api com o banco de dados MongoDb.
+
+## Running (No docker)
 
 Dentro da pasta do projeto, execute:
 ```

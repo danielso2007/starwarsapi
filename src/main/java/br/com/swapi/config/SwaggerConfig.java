@@ -69,7 +69,7 @@ public class SwaggerConfig {
         return new ApiInfo(
                 "STARWARS REST API",
                 "Apresentação da API REST usando Spring.",
-                "1.1.0-SNAPSHOT",
+                "1.4.0-SNAPSHOT",
                 "https://smartbear.com/terms-of-use/",
                 new Contact("Daniel Oliveira", "", "danielso2007@gmail.com"),
                 "Apache 2.0", "http://www.apache.org/licenses/LICENSE-2.0.html", Collections.emptyList());
