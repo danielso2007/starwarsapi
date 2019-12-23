@@ -20,7 +20,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = true, of = { "name" })
-@ToString(of = { "name" })
+@ToString(of = { "name", "climate", "terrain", "films" }, callSuper = true)
 @SuperBuilder
 public class Planet extends BaseAudit {
 
