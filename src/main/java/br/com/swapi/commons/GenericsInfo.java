@@ -9,7 +9,7 @@ public class GenericsInfo {
     }
 
     @SuppressWarnings("unchecked")
-	public <T> Class<T> getType(int index) {
+    public <T> Class<T> getType(int index) {
         return (Class<T>) this.types[index];
     }
 

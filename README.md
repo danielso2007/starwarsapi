@@ -1,5 +1,4 @@
 [![Actions Status](https://github.com/danielso2007/starwarsapi/workflows/swapiCI/badge.svg)](https://github.com/danielso2007/starwarsapi/actions)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/danielso2007/starwarsapi/swapiCI)
 [![Build Status](https://travis-ci.com/danielso2007/starwarsapi.svg?token=cNenT4ixErxehcz1sgqf&branch=master)](https://travis-ci.com/danielso2007/starwarsapi)
 ![GitHub package version](https://img.shields.io/github/package-json/v/danielso2007/starwarsapi.svg)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/danielso2007/starwarsapi.svg)](https://github.com/danielso2007/starwarsapi/pulls)

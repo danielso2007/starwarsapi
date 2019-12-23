@@ -12,11 +12,11 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 public class Application {
 
-	public static void main(String[] args) {
-		final SpringApplication application = new SpringApplication(Application.class);
-		application.setBannerMode(Banner.Mode.OFF);
-		application.setWebApplicationType(WebApplicationType.SERVLET);
-		application.run(args);
-	}
+    public static void main(String[] args) {
+        final SpringApplication application = new SpringApplication(Application.class);
+        application.setBannerMode(Banner.Mode.OFF);
+        application.setWebApplicationType(WebApplicationType.SERVLET);
+        application.run(args);
+    }
 
 }

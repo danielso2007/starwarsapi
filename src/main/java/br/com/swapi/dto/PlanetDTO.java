@@ -1,14 +1,24 @@
 package br.com.swapi.dto;
 
-import br.com.swapi.commons.dto.BaseAuditDTO;
+import java.util.List;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
+
+import br.com.swapi.commons.dto.BaseAuditDTO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
-import javax.validation.constraints.*;
-import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @NoArgsConstructor
@@ -23,7 +33,7 @@ public class PlanetDTO extends BaseAuditDTO {
 	@NotBlank(message = "Nome é obrigatório")
 	@NotNull(message = "Nome não pode ser nulo")
 	@Size(min = 2, max = 20, message = "Nome deve ter entre 2 e 20 caracteres")
-	@ApiModelProperty(notes = "O nome do planeta", example = "Alderaan", required = true, position = 0)
+	@ApiModelProperty(notes = "O nome do planeta", example = "Alderaan", required = true)
 	private String name;
 
 	@NotNull(message = "Clima é obrigatório")

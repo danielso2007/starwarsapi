@@ -1,28 +1,32 @@
 package br.com.swapi.commons.resource;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+
 import br.com.swapi.commons.lang.EntityNotFoundException;
 import br.com.swapi.commons.lang.ValidationException;
 import br.com.swapi.commons.response.Response;
 import br.com.swapi.commons.response.Response.ResponseBuilder;
 import br.com.swapi.commons.type.BaseTypeDTO;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Responsável pelos retornos dos recursos.
+ *
  * @param <T> O DTO.
  */
 @Slf4j
 public abstract class BaseResponse<T extends BaseTypeDTO> {
 
 	/**
-	 * Retorna um {@link ResponseEntity} com a exceção e o {@link HttpStatus} definidos.
-	 * @param e A exceção como error.
+	 * Retorna um {@link ResponseEntity} com a exceção e o {@link HttpStatus}
+	 * definidos.
+	 *
+	 * @param e      A exceção como error.
 	 * @param status O status de retorno.
 	 * @return Retorna um {@link ResponseEntity}.
 	 */
@@ -43,6 +47,7 @@ public abstract class BaseResponse<T extends BaseTypeDTO> {
 
 	/**
 	 * Retorna um {@link ResponseEntity} com status 400 com a exceção definida.
+	 *
 	 * @param e A exceção para o erro.
 	 * @return Retorna um {@link ResponseEntity}.
 	 */
@@ -52,6 +57,7 @@ public abstract class BaseResponse<T extends BaseTypeDTO> {
 
 	/**
 	 * Retorna um {@link ResponseEntity} com status 50 com a exceção definida.
+	 *
 	 * @param e A exceção para o erro.
 	 * @return Retorna um {@link ResponseEntity}.
 	 */
@@ -61,6 +67,7 @@ public abstract class BaseResponse<T extends BaseTypeDTO> {
 
 	/**
 	 * Retorna um {@link ResponseEntity} com status 200.
+	 *
 	 * @return Retorna um {@link ResponseEntity}
 	 */
 	protected final ResponseEntity<Response<T>> ok() {
@@ -69,6 +76,7 @@ public abstract class BaseResponse<T extends BaseTypeDTO> {
 
 	/**
 	 * Retorna um {@link ResponseEntity} com status 200.
+	 *
 	 * @param entity O dado que sera enviado no {@link ResponseEntity}.
 	 * @return {@link ResponseEntity}
 	 */
@@ -78,6 +86,7 @@ public abstract class BaseResponse<T extends BaseTypeDTO> {
 
 	/**
 	 * Retorna um {@link ResponseEntity} com status 200.
+	 *
 	 * @param list O dado que sera enviado no {@link ResponseEntity}.
 	 * @return {@link ResponseEntity}
 	 */
@@ -86,8 +95,9 @@ public abstract class BaseResponse<T extends BaseTypeDTO> {
 	}
 
 	/**
-	 * Retorna um {@link ResponseEntity} com status 400 ou status 500
-	 * dependendo da exceção {@link ValidationException} ou {@link EntityNotFoundException}.
+	 * Retorna um {@link ResponseEntity} com status 400 ou status 500 dependendo da
+	 * exceção {@link ValidationException} ou {@link EntityNotFoundException}.
+	 *
 	 * @param e A {@link Exception}
 	 * @return {@link ResponseEntity}
 	 */
@@ -101,6 +111,7 @@ public abstract class BaseResponse<T extends BaseTypeDTO> {
 
 	/**
 	 * Obtem os erros de um {@link BindingResult}.
+	 *
 	 * @param result O {@link BindingResult}
 	 * @return O {@link ResponseEntity} com os erros.
 	 */

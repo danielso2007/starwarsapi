@@ -4,19 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * Representa o retorno dos recursos.
+ *
  * @param <T> O tipo de retorno.
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@EqualsAndHashCode(of = {"data", "errors", "validation"})
+@EqualsAndHashCode(of = { "data", "errors", "validation" })
 @ToString(of = { "data" })
 @ApiModel(description = "Modelo de retorno da API")
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -31,7 +38,8 @@ public class Response<T> {
 
 	/**
 	 * Adiciona a mensagem de erro na lista.
-	 * @param error
+	 *
+	 * @param error A mensagem de error
 	 */
 	public void addError(String error) {
 		if (this.errors == null) {

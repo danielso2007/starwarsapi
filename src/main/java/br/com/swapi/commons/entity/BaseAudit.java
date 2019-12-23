@@ -2,17 +2,17 @@ package br.com.swapi.commons.entity;
 
 import java.util.Date;
 
-import io.swagger.annotations.ApiModelProperty;
-import lombok.experimental.SuperBuilder;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.querydsl.core.annotations.QueryEntity;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 /**
  * Representa as entidades com auditoria.

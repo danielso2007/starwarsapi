@@ -1,11 +1,16 @@
 package br.com.swapi.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import br.com.swapi.commons.dto.BaseEntityDTO;
 import br.com.swapi.commons.type.BaseSearchTypeDTO;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)

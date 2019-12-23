@@ -5,11 +5,11 @@ package br.com.swapi.commons.lang;
  */
 public class ValidationException extends ServiceException {
 
-	private static final long serialVersionUID = 2131502432258359475L;
+    private static final long serialVersionUID = 2131502432258359475L;
 
-	private Boolean validation = Boolean.TRUE;
+    private final Boolean validation = Boolean.TRUE;
 
-	public ValidationException(String message) {
+    public ValidationException(String message) {
         super(message);
     }
 
