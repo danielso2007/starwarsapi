@@ -25,12 +25,17 @@ if [[ -z "$1" ]] || [[ -z "$2" ]]; then
 else
     echo -e "${YELLOW}Branch:${NC} ${LIGHT_PURPLE}${BRANCH}${NC}"
     echo -e "${YELLOW}Version:${NC} ${LIGHT_PURPLE}${VERSION}${NC}"
+    echo -e "${YELLOW}POM version:${NC}"
+    cat pom.xml | grep SNAPSHOT
+    echo -e "${YELLOW}GIT:${NC} ${LIGHT_PURPLE}git pull${NC}"
     git pull
     if [[ "$3" ]]; then
-        echo -e "${YELLOW}Dry-run:${NC} ${LIGHT_PURPLE}YES${NC}"
+        echo -e "${YELLOW}npm:${NC} npm run release -- --release-as ${VERSION} --dry-run${NC}"
         npm run release -- --release-as ${VERSION} --dry-run
     else
+        echo -e "${YELLOW}npm:${NC} npm run release -- --release-as ${VERSION}${NC}"
         npm run release -- --release-as ${VERSION}
+        echo -e "${YELLOW}GIT:${NC} ${LIGHT_PURPLE}git push --follow-tags origin ${BRANCH}${NC}"
         git push --follow-tags origin ${BRANCH}
     fi
 fi
