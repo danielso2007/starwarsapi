@@ -1,4 +1,4 @@
-FROM openjdk:11-jre
+FROM openjdk:11.0.5-jdk-stretch
 MAINTAINER danielso2007@gmail.com
 RUN set -eux; \
 	apt-get update; \
