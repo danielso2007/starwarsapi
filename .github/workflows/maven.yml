@@ -1,4 +1,4 @@
-name: Java CI GitHub
+name: swapiCI
 
 on: [push]
 

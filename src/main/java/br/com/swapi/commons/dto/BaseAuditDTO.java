@@ -1,10 +1,14 @@
 package br.com.swapi.commons.dto;
 
-import io.swagger.annotations.ApiModelProperty;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
-
 import java.util.Date;
+
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 /**
  * Representa as entidades com auditoria.

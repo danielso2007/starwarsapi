@@ -7,11 +7,6 @@ public final class Util {
 	private Util() {
 	}
 
-	// Padrão Singleton
-	private static class SingletonHolder {
-		public static final Util instance = new Util();
-	}
-
 	public static Util getInstance() {
 		return SingletonHolder.instance;
 	}
@@ -35,13 +30,18 @@ public final class Util {
 			return ((String) obj).trim().isEmpty();
 		}
 		if (obj instanceof Collection) {
-			return ((Collection) obj).isEmpty();
+			return ((Collection<?>) obj).isEmpty();
 		}
 		return false;
 	}
 
 	public boolean isNotEmpty(Object obj) {
 		return !isEmpty(obj);
+	}
+
+	// Padrão Singleton
+	private static class SingletonHolder {
+		public static final Util instance = new Util();
 	}
 
 }

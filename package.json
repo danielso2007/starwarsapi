@@ -1,6 +1,6 @@
 {
   "name": "starwarsapi",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Projeto API de pesquisa.",
   "main": "index.js",
   "scripts": {
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/danielso2007/starwarsapi/issues"
   },
-  "homepage": "https://github.com/danielso2007/starwarsapi#readme"
+  "homepage": "https://github.com/danielso2007/starwarsapi#readme",
+  "devDependencies": {
+    "standard-version": "^7.0.1"
+  }
 }

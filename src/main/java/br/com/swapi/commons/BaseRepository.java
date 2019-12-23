@@ -1,17 +1,16 @@
 package br.com.swapi.commons;
 
-import java.io.Serializable;
-import java.util.Optional;
-
+import br.com.swapi.commons.entity.BaseEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
-
-import br.com.swapi.commons.entity.BaseEntity;
 import org.springframework.data.repository.NoRepositoryBean;
+
+import java.io.Serializable;
 
 /**
  * O repositório base da aplicação.
- * @param <E> A entidade.
+ *
+ * @param <E>  A entidade.
  * @param <ID> O tipo da identificação das entidades.
  */
 @NoRepositoryBean

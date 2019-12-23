@@ -13,7 +13,7 @@
 
     <groupId>br.com.swapi</groupId>
     <artifactId>starwarsapi</artifactId>
-    <version>1.4.0-SNAPSHOT</version>
+    <version>1.6.0-SNAPSHOT</version>
     <name>starwarsapi</name>
     <description>API de consulta de planetas do universo StarWars</description>
 
@@ -338,6 +338,10 @@
                             <resources>
                                 <resource>
                                     <directory>src/main/docker</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                                <resource>
+                                    <directory>src/main/script</directory>
                                     <filtering>true</filtering>
                                 </resource>
                             </resources>

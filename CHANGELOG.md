@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/danielso2007/starwarsapi/compare/v1.5.0...v1.6.0) (2019-12-23)
+
+
+### Features
+
+* Adicionando a nova pasta de scripts da inicialização da aplicação. ([fa86def](https://github.com/danielso2007/starwarsapi/commit/fa86defd25bbadc839cdb89b300651c4efecb8c9))
+* Atualização do docker da API para JDK mais atualizada. ([2cba843](https://github.com/danielso2007/starwarsapi/commit/2cba8434b4d2002a597466066070d82d815a4169))
+* Atualização dos scripts de inicialização da aplicação. ([b943f9e](https://github.com/danielso2007/starwarsapi/commit/b943f9e69ea4573af63f50f6ce7506b11efc69c4))
+* Novo arquivo executável para geração de versões no Git. ([3da5bbc](https://github.com/danielso2007/starwarsapi/commit/3da5bbca809709a219870ac976cf88255d1af9fd))
+
 ## [1.5.0](https://github.com/danielso2007/starwarsapi/compare/v1.4.0...v1.5.0) (2019-11-21)
 
 

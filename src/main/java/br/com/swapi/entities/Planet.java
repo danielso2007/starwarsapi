@@ -1,12 +1,18 @@
 package br.com.swapi.entities;
 
-import br.com.swapi.commons.entity.BaseAudit;
-import com.querydsl.core.annotations.QueryEntity;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
+import java.util.List;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
+import com.querydsl.core.annotations.QueryEntity;
+
+import br.com.swapi.commons.entity.BaseAudit;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 @QueryEntity
 @Document

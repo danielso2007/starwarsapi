@@ -1,3 +1,4 @@
+[![Actions Status](https://github.com/danielso2007/starwarsapi/workflows/swapiCI/badge.svg)](https://github.com/danielso2007/starwarsapi/actions)
 [![Build Status](https://travis-ci.com/danielso2007/starwarsapi.svg?token=cNenT4ixErxehcz1sgqf&branch=master)](https://travis-ci.com/danielso2007/starwarsapi)
 ![GitHub package version](https://img.shields.io/github/package-json/v/danielso2007/starwarsapi.svg)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/danielso2007/starwarsapi.svg)](https://github.com/danielso2007/starwarsapi/pulls)
@@ -37,7 +38,8 @@ Recomendado instalar o [sdkman](https://sdkman.io/) que é uma ferramenta para g
 
 Com o sdkman, instale o java:
 ```
-sdk install java 11.0.5-zulu
+sdk list java
+sdk install java 11.0.5.j9-adpt
 ```
 
 Instalando o Maven:
@@ -50,12 +52,12 @@ sdk install maven
 Há um perfil no `pom.xml` para a criação da imagem do projeto. Ao executar `mvn clean package -P docker`, será realizado o teste e criado o arquivo `Dockerfile` na pasta `target`, criando a imagem `starwarsapi:<project.version>`.
 Para ver a imagem criada, digite no terminal o comando `docker images`.
 
- Para "rodar" a imagem, execute:
+Para "rodar" a imagem, execute:
 ```
 docker run -p 8080:8080 --name swapi  starwarsapi:<project.version>
 ```
 
-Teste o endereço:
+### Teste o endereço:
 
 ```
 http://localhost:8080/swagger-ui.html#/
@@ -65,7 +67,7 @@ Inicialmente só é criada a imagem da api. Posteriormente mostrarei como execut
 
 ## Running with docker-compose
 
-Ao executar o maven `mvn clean package -P docker`, é gerado o `Dockerfile` e também o `docker-compose.yml`. Com o docker-compose é possível inicar a aplicação já com um container docker com Mongo. Inicialmente esse banco está vazio.
+Ao executar o maven `mvn clean package -P docker`, é gerado o `Dockerfile` e também o `docker-compose.yml`. Com o docker-compose é possível inicar a aplicação já com um container docker com Mongo. Inicialmente esse banco estará vazio.
 
 Execute esse comando dentro da pasta `target`:
 ```
@@ -79,7 +81,7 @@ Para parar os containers, execute:
 docker-compose stop
 ```
 
-Pelo `pom.xml` é possível configurar a criação do arquivo `docker-compose`. Inicialmente a porta do container mongo a porta está exposta, mas é só modificar o arquivo `docker-compose` e remover, pois a comunicação entre a api e o banco é via `network` interno entre os containers.
+Pelo `pom.xml` é possível configurar a criação do arquivo `docker-compose`. Inicialmente a porta do container mongo está exposta, mas é só modificar o arquivo `docker-compose` e remover, pois a comunicação entre a api e o banco é via `network` interno entre os containers.
 
 ## Running (No docker)
 
@@ -107,11 +109,17 @@ kill -9 <id_processo>
 
 ### Scripts de execução e encerramento do projeto
 
-Para iniciar o projeto, execute:
+Dentro da pasta `target` é criado os arquivos `start.sh` e `stop.sh`. Esses arquivos não são executáveis e precisam ser modificados:
+```
+cd target
+chmod a+x start.sh stop.sh
+```
+
+Para iniciar o projeto, execute (dentro da pasta `target`):
 ```
 ./start.sh
 ```
-Para encerrar o projeto, execute:
+Para encerrar o projeto, execute (dentro da pasta `target`):
 ```
 ./stop.sh
 ```
@@ -122,11 +130,11 @@ O projeto está configurado para não executar os testes quando construído para
 
 `mvn clean test -P test`
 
-Os testes são executados normalmente quando projeto construído para **produção**. Há no arquivo do `pom.xml` essa configuração, que pode ser modificada a qualquer momento do desenvolvimento. Inicialmente, para o desenvolvimento, o desenvolvedor pode executar seus testes ao seguir o padrão TDD pelo próprio IDE.
+Os testes são executados normalmente quando projeto construído para **produção** e na criação da imagem **Docker**. Há no arquivo do `pom.xml` essa configuração, que pode ser modificada a qualquer momento do desenvolvimento. Inicialmente, para o desenvolvimento, o desenvolvedor pode executar seus testes ao seguir o padrão TDD pela própria IDE.
 
 ## Deployment
 
-Nada será necessário, o projeto é executado como Fat jar.
+Nada será necessário, o projeto é executado como `Fat jar`. Mas para produção e homologação, é possível usar as imagens geradas pelo comando: `mvn clean package -P docker`. Muito importante para o uso do CI.
 
 
 ## Built With

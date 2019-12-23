@@ -5,9 +5,9 @@ package br.com.swapi.commons.lang;
  */
 public class EntityNotFoundException extends RuntimeException {
 
-	private static final long serialVersionUID = -6808653675284758695L;
+    private static final long serialVersionUID = -6808653675284758695L;
 
-	public EntityNotFoundException() {
+    public EntityNotFoundException() {
     }
 
     public EntityNotFoundException(String message) {
