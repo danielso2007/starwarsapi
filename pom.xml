@@ -148,15 +148,15 @@
         <dependency>
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-apt</artifactId>
-            <version>4.2.1</version><!--$NO-MVN-MAN-VER$ -->
+            <version>4.2.2</version><!--$NO-MVN-MAN-VER$ -->
             <scope>provided</scope>
         </dependency>
 
-        <!-- http://www.querydsl.com/static/querydsl/4.2.1/reference/html/ch02s07.html -->
+        <!-- http://www.querydsl.com/static/querydsl/4.2.2/reference/html/ch02s07.html -->
         <dependency>
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-mongodb</artifactId>
-            <version>4.2.1</version><!--$NO-MVN-MAN-VER$ -->
+            <version>4.2.2</version><!--$NO-MVN-MAN-VER$ -->
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -291,7 +291,7 @@
                     <dependency>
                         <groupId>com.querydsl</groupId>
                         <artifactId>querydsl-apt</artifactId>
-                        <version>4.2.1</version><!--$NO-MVN-MAN-VER$ -->
+                        <version>4.2.2</version><!--$NO-MVN-MAN-VER$ -->
                     </dependency>
                 </dependencies>
             </plugin>
