@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.querydsl.core.annotations.QueryEntity;
 
 import br.com.swapi.commons.entity.BaseAudit;
@@ -16,6 +19,8 @@ import lombok.experimental.SuperBuilder;
 
 @QueryEntity
 @Document
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(value = Include.NON_NULL)
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
